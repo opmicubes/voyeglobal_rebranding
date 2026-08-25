@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# VoyeGlobal Next.js E-Commerce Platform
 
-## Getting Started
+A production-grade, reusable, white-label Next.js e-commerce platform.
 
-First, run the development server:
+> **New developers and AI agents: read [`docs/README.md`](./docs/README.md) before starting.**
+
+## What this is
+
+This platform powers multiple e-commerce sites from a single codebase. Think of it as a "parent theme" concept — site-specific branding, locale, and currency are configured per deployment, while the core platform is shared.
+
+## Architecture philosophy
+
+- **Documentation first**: every decision is documented in `docs/` before implementation
+- **Reusability**: built for multiple brands and sites from day one
+- **Server Components**: default to server-side rendering, use client components only when required
+- **No hardcoding**: no brand, text, currency, or locale assumptions in core components
+- **Accessibility**: WCAG 2.2 AA — not optional
+- **RTL**: first-class, not an afterthought
+
+## Technology stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js (App Router) |
+| Language | JavaScript |
+| Styling | Tailwind CSS v4 |
+| Backend | WordPress + WooCommerce |
+| API | WPGraphQL + WooGraphQL |
+| React | React 19 + React Compiler |
+
+## Getting started
 
 ```bash
+# Install dependencies
+npm install
+
+# Copy environment config
+cp .env.example .env.local
+# Edit .env.local with your values
+
+# Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Documentation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Read [`docs/README.md`](./docs/README.md) for the full documentation index.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Key docs:
+- [`docs/architecture.md`](./docs/architecture.md) — system architecture
+- [`docs/design.md`](./docs/design.md) — design system
+- [`docs/coding-standards.md`](./docs/coding-standards.md) — code rules
+- [`docs/agents.md`](./docs/agents.md) — AI agent rules
+- [`docs/workflow.md`](./docs/workflow.md) — development workflow
+- [`docs/definition-of-done.md`](./docs/definition-of-done.md) — completion checklist
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev      # Start dev server (Turbopack)
+npm run build    # Production build
+npm run start    # Start production server
+npm run lint     # ESLint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Multi-site support
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This platform supports multiple sites via environment-based configuration. See [`docs/multi-site.md`](./docs/multi-site.md) and [`docs/white-labeling.md`](./docs/white-labeling.md).
 
-## Deploy on Vercel
+## Status
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Foundation phase complete. E-commerce features not yet implemented. See `docs/` for the roadmap.
