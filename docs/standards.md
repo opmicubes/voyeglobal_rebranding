@@ -31,6 +31,7 @@ Hard rules — never break:
 - Never add `'use client'` to a component that doesn't need it
 - Never declare work done without testing it
 - Never silently change files outside the task scope
+- Never use `<a>` for internal navigation — always use `<Link href="...">` from `next/link`. Use `<a>` ONLY for external URLs (`https://`), `mailto:`, `tel:`, or `target="_blank"` external links.
 - Update `docs/architecture.md` if a new architectural pattern is introduced
 
 ## Accessibility (required, not optional)

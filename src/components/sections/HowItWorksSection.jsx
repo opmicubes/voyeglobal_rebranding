@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const steps = [
   {
     number: '01',
@@ -33,16 +35,16 @@ export function HowItWorksSection() {
                 How Voy&apos;s eSIM Works
               </h2>
             </div>
-            <a href="#" className="text-[var(--color-brand)] text-base font-semibold border border-[var(--color-brand)] px-6 py-2.5 rounded-[var(--radius-pill)] hover:bg-[var(--color-brand)] hover:text-white transition-all self-start md:self-auto whitespace-nowrap">
+            <Link href="#" className="text-[var(--color-brand)] text-base font-semibold border border-[var(--color-brand)] px-6 py-2.5 rounded-[var(--radius-pill)] hover:bg-[var(--color-brand)] hover:text-white transition-all self-start md:self-auto whitespace-nowrap">
               More About Voy →
-            </a>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             <div className="hidden md:block absolute top-8 start-[16.666%] end-[16.666%] h-0.5 bg-[var(--color-brand)]/30 z-0" aria-hidden="true" />
 
             {steps.map((step) => (
-              <div key={step.number} className="relative z-10 text-center md:text-start">
+              <div key={step.number} className="relative z-10 bg-white rounded-2xl p-6 shadow-[var(--shadow-subtle)] text-center md:text-start">
                 <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
                   <div className="w-16 h-16 bg-[var(--color-brand)] rounded-full flex items-center justify-center shadow-[var(--shadow-brand)] flex-shrink-0">
                     <span className="text-white font-bold text-lg">{step.number}</span>

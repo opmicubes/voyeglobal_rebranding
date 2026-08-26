@@ -25,7 +25,7 @@ export function WhyChooseSection() {
             {/* Price highlight */}
             <div className="flex items-end gap-4">
               <div className="bg-white rounded-[var(--radius-lg)] shadow-[var(--shadow-subtle)] px-5 py-4 flex items-center gap-3">
-                <span className="text-2xl" aria-hidden="true">🇯🇵</span>
+                <span className="text-xl leading-none" aria-hidden="true">🇯🇵</span>
                 <div>
                   <p className="text-xs text-[var(--color-text-muted)] mb-0.5">Japan</p>
                   <p className="text-[var(--text-h4)] font-bold text-[var(--color-brand)]">$2.99</p>

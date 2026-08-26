@@ -29,5 +29,9 @@ export function buildMetadata(seo = {}) {
       title: merged.openGraph?.title ?? merged.title,
       description: merged.openGraph?.description ?? merged.description,
     },
+    icons: {
+      icon: '/home/voye.svg',
+      shortcut: '/home/voye.svg',
+    },
   };
 }

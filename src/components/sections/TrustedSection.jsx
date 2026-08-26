@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const stats = [
   { value: '200,000+', label: 'Travelers Worldwide' },
@@ -64,9 +65,9 @@ export function TrustedSection() {
               ))}
             </div>
 
-            <a href="#" className="inline-block bg-[var(--color-brand)] text-white font-semibold text-base px-8 py-3.5 rounded-[var(--radius-pill)] hover:bg-[var(--color-brand-dark)] transition-colors shadow-[var(--shadow-brand)]">
+            <Link href="#" className="inline-block bg-[var(--color-brand)] text-white font-semibold text-base px-8 py-3.5 rounded-[var(--radius-pill)] hover:bg-[var(--color-brand-dark)] transition-colors shadow-[var(--shadow-brand)]">
               Purchase Your eSIM
-            </a>
+            </Link>
           </div>
         </div>
       </div>

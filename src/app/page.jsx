@@ -12,7 +12,6 @@ import { ComparisonSection } from '@/components/sections/ComparisonSection';
 import { FaqSection } from '@/components/sections/FaqSection';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { Footer } from '@/components/layout/Footer';
-
 export default function HomePage() {
   return (
     <>

@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { LuX } from 'react-icons/lu';
+import Link from 'next/link';
 
 export function AnnouncementBar() {
   const [visible, setVisible] = useState(true);
@@ -15,9 +16,9 @@ export function AnnouncementBar() {
           APP10
         </span>{' '}
         on your first app order and get 10% off.{' '}
-        <a href="#" className="underline font-medium hover:text-[var(--color-brand-light)] transition-colors">
+        <Link href="#" className="underline font-medium hover:text-[var(--color-brand-light)] transition-colors">
           Download the app now!
-        </a>
+        </Link>
       </p>
       <button
         onClick={() => setVisible(false)}

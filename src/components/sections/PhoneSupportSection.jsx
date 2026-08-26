@@ -1,12 +1,13 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function PhoneSupportSection() {
   const [query, setQuery] = useState('');
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-[#FFF8E7] py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto px-5 md:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -31,9 +32,9 @@ export function PhoneSupportSection() {
                 Check Now
               </button>
             </div>
-            <a href="#" className="text-[var(--color-brand)] text-base hover:underline">
+            <Link href="#" className="text-[var(--color-brand)] text-base hover:underline">
               Or check out the full list of compatible devices →
-            </a>
+            </Link>
           </div>
 
           <div className="relative rounded-[var(--radius-2xl)] overflow-hidden aspect-[4/3]">
@@ -44,6 +45,14 @@ export function PhoneSupportSection() {
               className="object-cover"
               loading="lazy"
             />
+            <div className="absolute bottom-4 end-4 w-24 h-24" aria-hidden="true">
+              <Image
+                src="/home/view2.svg"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -44,6 +44,7 @@ Every task follows this order — no exceptions:
 - This is a JavaScript project — never introduce TypeScript (.ts / .tsx files)
 - Never use inline styles (`style={{}}`) — use Tailwind classes only
 - Never create external CSS files for component styling — Tailwind classes only. The only CSS file allowed is `src/app/globals.css` (for CSS variables and base resets)
+- Never use `<a>` for internal navigation — always use Next.js `<Link>` from `next/link`. Use `<a>` only for external URLs, `mailto:`, `tel:`, or `target="_blank"` links
 
 ## Key source locations
 

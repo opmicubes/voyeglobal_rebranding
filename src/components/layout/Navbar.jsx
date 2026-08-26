@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { LuGlobe, LuShoppingCart, LuUser, LuX, LuMenu } from 'react-icons/lu';
+import { LuGlobe, LuShoppingCart, LuX, LuMenu } from 'react-icons/lu';
 import { FaRegCircleUser } from 'react-icons/fa6';
 
 export function Navbar() {
@@ -26,13 +26,13 @@ export function Navbar() {
         {/* Nav links — immediately after logo, left-aligned */}
         <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
           {['Plans', 'About', 'Support', 'Refer & Earn'].map((item) => (
-            <a
+            <Link
               key={item}
               href="#"
               className="text-sm font-medium text-[var(--color-text-primary)] hover:text-[var(--color-brand)] transition-colors whitespace-nowrap"
             >
               {item}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -78,9 +78,9 @@ export function Navbar() {
         <div className="bg-white border-t border-[var(--color-border)] px-5 pb-5 pt-3">
           <nav className="flex flex-col gap-4" aria-label="Menu">
             {['Plans', 'About', 'Support', 'Refer & Earn'].map((item) => (
-              <a key={item} href="#" className="text-base text-[var(--color-text-primary)] py-1 hover:text-[var(--color-brand)] transition-colors">
+              <Link key={item} href="#" className="text-base text-[var(--color-text-primary)] py-1 hover:text-[var(--color-brand)] transition-colors">
                 {item}
-              </a>
+              </Link>
             ))}
             <div className="flex items-center gap-4 pt-3 border-t border-[var(--color-border)]">
               <button className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)]">

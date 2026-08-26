@@ -158,6 +158,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Focus — never remove without replacement */
 :focus-visible {
   outline: 2px solid var(--color-brand);

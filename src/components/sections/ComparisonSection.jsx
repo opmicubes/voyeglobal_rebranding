@@ -42,8 +42,8 @@ function Check({ yes }) {
 
 export function ComparisonSection() {
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-10">
+    <section className="py-12 md:py-16 px-4 md:px-8">
+      <div className="max-w-[1400px] mx-auto bg-gradient-to-b from-[#EBF4FD] to-white rounded-3xl px-5 md:px-10 py-12 md:py-16">
         <div className="text-center mb-12">
           <p className="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-3">
             VOY VS. OTHER ESIM SERVICE PROVIDERS

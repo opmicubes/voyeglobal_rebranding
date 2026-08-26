@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { LuChevronDown } from 'react-icons/lu';
+import Link from 'next/link';
 
 const faqs = [
   {
@@ -65,9 +66,9 @@ export function FaqSection() {
         </div>
 
         <div className="flex justify-center mt-10">
-          <a href="#" className="text-[var(--color-brand)] text-base font-semibold border border-[var(--color-brand)] px-8 py-3 rounded-[var(--radius-pill)] hover:bg-[var(--color-brand)] hover:text-white transition-all">
+          <Link href="#" className="text-[var(--color-brand)] text-base font-semibold border border-[var(--color-brand)] px-8 py-3 rounded-[var(--radius-pill)] hover:bg-[var(--color-brand)] hover:text-white transition-all">
             View All FAQs
-          </a>
+          </Link>
         </div>
       </div>
     </section>

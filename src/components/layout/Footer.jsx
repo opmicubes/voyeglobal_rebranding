@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const footerLinks = {
   Plans: ['Global Plans', 'Regional Plans', 'Country Plans', 'Family Plans', 'Cruise Plans'],
@@ -44,12 +45,12 @@ export function Footer() {
               <ul className="flex flex-col gap-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <a
+                    <Link
                       href="#"
                       className="text-sm text-[var(--color-text-primary)] hover:text-[var(--color-brand)] transition-colors"
                     >
                       {link}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -60,7 +61,13 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-[var(--color-border)] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[13px] text-[var(--color-text-primary)]">© 2026 VOY. All rights reserved.</p>
-          <p className="text-[13px] text-[var(--color-text-primary)]">Terms · Privacy · Cookies</p>
+          <p className="text-[13px] text-[var(--color-text-primary)]">
+            <Link href="#" className="hover:text-[var(--color-brand)] transition-colors">Terms</Link>
+            {' · '}
+            <Link href="#" className="hover:text-[var(--color-brand)] transition-colors">Privacy</Link>
+            {' · '}
+            <Link href="#" className="hover:text-[var(--color-brand)] transition-colors">Cookies</Link>
+          </p>
         </div>
       </div>
     </footer>
