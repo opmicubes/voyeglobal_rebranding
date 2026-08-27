@@ -25,8 +25,8 @@ export default function HomePage() {
         <WhyChooseSection />
         <HowItWorksSection />
         <PhoneSupportSection />
-        <TrustedSection />
         <ComparisonSection />
+        <TrustedSection />
         <FaqSection />
         <CtaSection />
       </main>

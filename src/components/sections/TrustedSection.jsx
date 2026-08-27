@@ -1,74 +1,73 @@
 import Image from 'next/image';
-import Link from 'next/link';
-
-const stats = [
-  { value: '200,000+', label: 'Travelers Worldwide' },
-  { value: '130+', label: 'Countries Covered' },
-  { value: '4.8★', label: 'Average Rating' },
-  { value: '24/7', label: 'Customer Support' },
-];
+import { SiAppstore } from 'react-icons/si';
 
 export function TrustedSection() {
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left: image grid — 2 images stacked */}
-          <div className="grid grid-cols-2 gap-4 h-[400px] md:h-[480px]">
-            <div className="relative rounded-[var(--radius-xl)] overflow-hidden row-span-2">
-              <Image
-                src="/home/view1.png"
-                alt="Happy traveler using Voye eSIM"
-                fill
-                className="object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="relative rounded-[var(--radius-xl)] overflow-hidden">
-              <Image
-                src="/home/view2.svg"
-                alt="Traveler exploring with Voye connectivity"
-                fill
-                className="object-cover"
-                loading="lazy"
-              />
-            </div>
-            {/* Third cell — stat card */}
-            <div className="rounded-[var(--radius-xl)] bg-[var(--color-surface-blue)] flex flex-col items-center justify-center gap-2 p-4">
-              <span className="text-[var(--color-brand)] font-bold text-4xl">4.8★</span>
-              <span className="text-[var(--color-text-secondary)] text-sm text-center">App Store Rating</span>
-            </div>
-          </div>
+    <section className="bg-[var(--color-surface)] py-16 md:py-20 rounded-b-[80px] ">
+      <div className="max-w-[1408px] mx-auto px-4 md:px-8">
 
-          {/* Right: text + stats */}
-          <div>
-            <p className="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-3">
-              MORE ABOUT VOY
-            </p>
-            <h2 className="font-bold text-[var(--color-text-dark)] leading-[var(--leading-tight)] mb-4 text-[var(--text-h2)]">
-              Trusted by{' '}
-              <span className="text-[var(--color-brand)]">200,000+ Travelers</span>{' '}
-              Worldwide
-            </h2>
-            <p className="text-[var(--text-xl)] text-[var(--color-text-primary)] mb-10 leading-[var(--leading-relaxed)]">
-              Hassle-free eSIM service with global coverage, competitive rates, and dedicated support.
-            </p>
+        <div className="flex items-center justify-center gap-4 mb-10">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-black/25" />
+          <p className="text-[var(--color-text-dark)] text-base font-semibold uppercase tracking-widest whitespace-nowrap">
+            MORE ABOUT VOY
+          </p>
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-black/25" />
+        </div>
 
-            <div className="grid grid-cols-2 gap-6 mb-10">
-              {stats.map((s) => (
-                <div key={s.label} className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-5">
-                  <p className="font-bold text-[var(--color-brand)] text-[var(--text-h3)]">
-                    {s.value}
-                  </p>
-                  <p className="text-sm text-[var(--color-text-secondary)] mt-1">{s.label}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          {/* LEFT CARD */}
+          <div className="relative rounded-3xl overflow-hidden min-h-[620px]">
+            <Image
+              src="/home/about1.png"
+              alt="Trusted travelers worldwide"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
+            />
+            {/* Content */}
+            <div className="absolute top-0 start-0 p-12 z-10">
+              <p className="text-2xl text-[var(--color-text-dark)]">Trusted by</p>
+              <p className="text-2xl text-[var(--color-text-dark)]">
+                <span className="font-bold">200k+ Travelers</span> Worldwide
+              </p>
+              <div className="flex items-center gap-4 mt-5">
+                <div className="flex items-center gap-2">
+                  <SiAppstore className="w-10 h-10 p-2 bg-white rounded-sm text-[var(--color-text-dark)]" aria-hidden="true" />
+                  <span className="font-bold text-lg text-[var(--color-text-dark)]">4.5</span>
+                  <span className="text-[var(--color-text-secondary)] text-base">/5</span>
                 </div>
-              ))}
+                <div className="w-px h-6 bg-[var(--color-border)]" />
+                <div className="flex items-center gap-2">
+                  <Image className='w-10 h-10 p-2 bg-white rounded-sm' src="/home/play-store.svg" alt="Google Play" width={32} height={32} aria-hidden="true" />
+                  <span className="font-bold text-lg text-[var(--color-text-dark)]">4.6</span>
+                  <span className="text-[var(--color-text-secondary)] text-base">/5</span>
+                </div>
+              </div>
             </div>
-
-            <Link href="#" className="inline-block bg-[var(--color-brand)] text-white font-semibold text-base px-8 py-3.5 rounded-[var(--radius-pill)] hover:bg-[var(--color-brand-dark)] transition-colors shadow-[var(--shadow-brand)]">
-              Purchase Your eSIM
-            </Link>
           </div>
+
+          {/* RIGHT CARD */}
+          <div className="relative rounded-3xl overflow-hidden min-h-[820px]">
+            <Image
+              src="/home/about2.png"
+              alt="Friends sharing referral"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
+            />
+            {/* Content */}
+            <div className="absolute top-0 start-0 p-12 z-10">
+              <p className="text-white text-2xl mb-1">Send $5 to a friend.</p>
+              <p className="text-white text-2xl font-bold mb-6">Get $5 for your next eSIM.</p>
+              <button className="bg-white text-[var(--color-brand)] font-semibold text-base px-7 py-3 rounded-md hover:bg-white/90 transition-colors">
+                Refer and Earn
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

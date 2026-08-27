@@ -1,4 +1,5 @@
-import { LuCheck, LuX } from 'react-icons/lu';
+import { GiCheckMark } from 'react-icons/gi';
+import { LuX } from 'react-icons/lu';
 
 const features = [
   'One eSIM for all supported destinations',
@@ -30,33 +31,32 @@ const checkData = {
 
 function Check({ yes }) {
   return yes ? (
-    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[var(--color-brand)]/10" aria-label="Yes">
-      <LuCheck className="w-4 h-4 text-[var(--color-brand)]" aria-hidden="true" />
-    </span>
+    <GiCheckMark className="w-5 h-5 text-[var(--color-brand)]" aria-label="Yes" />
   ) : (
-    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[var(--color-surface-alt)]" aria-label="No">
-      <LuX className="w-4 h-4 text-[var(--color-text-muted)]" aria-hidden="true" />
-    </span>
+    <LuX className="w-5 h-5 text-[var(--color-text-muted)]" aria-label="No" />
   );
 }
 
 export function ComparisonSection() {
   return (
-    <section className="py-12 md:py-16 px-4 md:px-8">
-      <div className="max-w-[1400px] mx-auto bg-gradient-to-b from-[#EBF4FD] to-white rounded-3xl px-5 md:px-10 py-12 md:py-16">
-        <div className="text-center mb-12">
-          <p className="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-3">
+    <section className="pt-2">
+      <div className="w-full rounded-[80px] bg-[linear-gradient(to_bottom,#EBF6FE00_1%,#ffffff_19%,#ffffff_71%,#B5DEFF_100%)] pb-12 md:pb-16">
+        <div className="max-w-[1408px] mx-auto px-5 md:px-10">
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-black/25" />
+          <p className="text-[var(--color-text-dark)] text-base font-semibold uppercase tracking-widest whitespace-nowrap">
             VOY VS. OTHER ESIM SERVICE PROVIDERS
           </p>
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-black/25" />
         </div>
 
-        <div className="overflow-x-auto rounded-[var(--radius-xl)] border border-[var(--color-border)] shadow-[var(--shadow-card)]">
+        <div className="overflow-x-auto rounded-[var(--radius-xl)]  shadow-[var(--shadow-card)]">
           <table className="w-full min-w-[640px] bg-white">
             <thead>
-              <tr>
+              <tr className="border-b border-[var(--color-border)]">
                 <th className="text-start ps-6 py-5 text-sm font-semibold text-[var(--color-text-secondary)] w-[40%]">Feature</th>
                 {competitors.map((c, i) => (
-                  <th key={c} className={`text-center py-5 px-4 text-base font-bold ${i === 0 ? 'text-[var(--color-brand)] bg-[var(--color-surface-blue)]' : 'text-[var(--color-text-secondary)]'}`}>
+                  <th key={c} className={`text-center py-5 px-4 text-base font-bold ${i === 0 ? 'text-white bg-[#077AD5]' : 'text-[var(--color-text-secondary)]'}`}>
                     {c}
                   </th>
                 ))}
@@ -67,7 +67,7 @@ export function ComparisonSection() {
                 <tr key={feature} className="hover:bg-[var(--color-surface)]/50">
                   <td className="ps-6 py-4 text-base text-[var(--color-text-primary)] font-medium">{feature}</td>
                   {(checkData[feature] ?? [false, false, false, false]).map((val, i) => (
-                    <td key={i} className={`text-center py-4 px-4 ${i === 0 ? 'bg-[var(--color-surface-blue)]/40' : ''}`}>
+                    <td key={i} className={`text-center py-4 px-4 ${i === 0 ? 'bg-[#E6F2FB]' : ''}`}>
                       <div className="flex justify-center">
                         <Check yes={val} />
                       </div>
@@ -77,6 +77,7 @@ export function ComparisonSection() {
               ))}
             </tbody>
           </table>
+        </div>
         </div>
       </div>
     </section>
