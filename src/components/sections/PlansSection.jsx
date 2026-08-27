@@ -25,7 +25,7 @@ export function PlansSection() {
   const [activeTab, setActiveTab] = useState('Country');
 
   return (
-    <section className="py-12 md:py-16 px-4 md:px-8">
+    <section className="bg-white py-12 md:py-16 px-4 md:px-8 relative z-10 rounded-b-[40px] -mb-10">
       <div className="max-w-[1408px] mx-auto bg-gradient-to-b from-[#A0D4FF] to-[#ECF7FF] rounded-3xl px-8 md:px-14 py-12">
 
         {/* Section header with lines on both sides */}

@@ -2,47 +2,55 @@ import Image from 'next/image';
 
 export function GatewaySection() {
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-          <div>
-            <h2 className="font-semibold text-[var(--color-text-dark)] leading-[var(--leading-snug)] mb-6 text-[var(--text-h2)]">
-              Your Gateway to Seamless Global Connectivity
-            </h2>
-            <p className="text-[var(--text-xl)] text-[var(--color-text-primary)] leading-[var(--leading-relaxed)]">
-              In an age where staying connected is paramount, whether for business, leisure, or personal needs, Voye Global stands out as your premier eSIM provider, offering unparalleled global coverage and convenience.
-            </p>
-          </div>
-          <div className="relative rounded-[var(--radius-2xl)] overflow-hidden aspect-[4/3] bg-[var(--color-surface-blue)]">
-            <Image
-              src="/home/about1.svg"
-              alt="Gateway to global connectivity"
-              fill
-              className="object-cover"
-              loading="lazy"
-            />
-          </div>
+    <section className="relative z-0 w-full">
+
+      {/* Background image — full screen width */}
+      <Image
+        src="/home/sec3.png"
+        alt="Traveler using Voye Global eSIM"
+        fill
+        className="object-cover object-center"
+        sizes="100vw"
+        loading="lazy"
+      />
+
+      {/* Right-side dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-l from-black/50 via-black/10 to-transparent" aria-hidden="true" />
+
+      {/* Outer padding — matches PlansSection section px */}
+      <div className="relative z-10 w-full px-4 md:px-8 py-20 min-h-[500px] md:min-h-[580px] flex items-center">
+      {/* Inner centering — matches PlansSection inner div */}
+      <div className="max-w-[1408px] mx-auto w-full">
+      {/* White card */}
+      <div className="w-full sm:w-[50%] lg:w-[650px] bg-white opacity-70 rounded-2xl p-6 md:p-9 flex flex-col justify-center gap-6 shadow-[var(--shadow-card)]">
+
+        {/* Section 1 */}
+        <div>
+          <h2 className="text-[var(--color-text-dark)] font-semibold text-xl md:text-2xl leading-snug mb-3">
+            Your Gateway to Seamless Global Connectivity
+          </h2>
+          <p className="text-[var(--color-text-primary)] text-sm leading-relaxed">
+            In an age where staying connected is paramount, whether for business, leisure, or personal needs,{' '}
+            <strong className="text-[var(--color-text-dark)] font-semibold">
+              Voye Global stands out as a beacon of reliable, affordable, and easy-to-use connectivity solutions.
+            </strong>
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative rounded-[var(--radius-2xl)] overflow-hidden aspect-[4/3] bg-[var(--color-surface-blue)] order-2 lg:order-1">
-            <Image
-              src="/home/about2.svg"
-              alt="What Voye Global offers"
-              fill
-              className="object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div className="order-1 lg:order-2">
-            <h2 className="font-semibold text-[var(--color-text-dark)] leading-[var(--leading-snug)] mb-6 text-[var(--text-h2)]">
-              What Voye Global Offers
-            </h2>
-            <p className="text-[var(--text-xl)] text-[var(--color-text-primary)] leading-[var(--leading-relaxed)]">
-              Voye Global simplifies global connectivity, making it accessible to everyone. Our eSIM (embedded SIM) transforms how travelers stay connected — no physical SIM cards, no roaming surprises, just seamless data wherever you go.
-            </p>
-          </div>
+        {/* Divider */}
+        <div className="h-px bg-[var(--color-border)]" aria-hidden="true" />
+
+        {/* Section 2 */}
+        <div>
+          <h3 className="text-[var(--color-text-dark)] font-semibold text-lg leading-snug mb-3">
+            What Voye Global Offers
+          </h3>
+          <p className="text-[var(--color-text-primary)] text-sm leading-relaxed">
+            Voye Global simplifies global connectivity, making it accessible to everyone. Our eSIM (embedded SIM) transforms how travelers connect worldwide.
+          </p>
         </div>
+      </div>
+      </div>
       </div>
     </section>
   );
