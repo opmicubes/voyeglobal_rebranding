@@ -1,12 +1,12 @@
 'use client';
 import { useState } from 'react';
-import { LuChevronDown } from 'react-icons/lu';
+import { LuChevronDown, LuChevronUp } from 'react-icons/lu';
 import Link from 'next/link';
 
 const faqs = [
   {
     question: "Can I use Voye's eSIM anywhere in the world?",
-    answer: "Almost! Voye eSIM coverage reaches up to 130+ countries globally. If you're looking for a specific location, make sure you check our coverage map or contact our support team for the latest destination updates.",
+    answer: "Almost! Voye eSIM coverage reaches up to 130+ countries globally. If you're looking for a specific location, make sure you look it up first and see if we support it!\n\nFew notes:\nCruises between destinations are also supported- You can find the supported cruises here.\nSome locations have unstable network infrastructure, which might lead to a bad reception. For example the Sinay desert in Egypt is known for bad reception. While we will try to give you the best experience, we cannot vouch it for these areas.",
   },
   {
     question: 'Do all Mobile Devices support eSIM?',
@@ -22,52 +22,55 @@ const faqs = [
   },
 ];
 
-function FaqItem({ question, answer }) {
-  const [open, setOpen] = useState(false);
-  const id = question.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-
+function FaqItem({ question, answer, open, onToggle }) {
   return (
-    <div className="border border-[var(--color-border)] rounded-[var(--radius-lg)] overflow-hidden">
+    <div className="bg-[#f8f9fa] rounded-3xl p-10">
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => onToggle()}
         aria-expanded={open}
-        aria-controls={id}
-        className="w-full text-start px-6 py-5 flex items-center justify-between gap-4 hover:bg-[var(--color-surface)] transition-colors"
+        className="w-full text-start flex items-start justify-between gap-16"
       >
-        <span className="text-base md:text-lg font-semibold text-[var(--color-text-dark)]">{question}</span>
-        <span className={`flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-brand)] transition-transform ${open ? 'rotate-180' : ''}`} aria-hidden="true">
-          <LuChevronDown className="w-3 h-3" aria-hidden="true" />
-        </span>
+        <span className="text-2xl font-semibold text-[#2a2a2e]">{question}</span>
+        {open
+          ? <LuChevronUp className="w-6 h-6 flex-shrink-0 mt-1 text-black" aria-hidden="true" />
+          : <LuChevronDown className="w-6 h-6 flex-shrink-0 mt-1 text-black" aria-hidden="true" />
+        }
       </button>
       {open && (
-        <div id={id} className="px-6 pb-5">
-          <p className="text-base text-[var(--color-text-secondary)] leading-[var(--leading-relaxed)]">{answer}</p>
-        </div>
+        <p className="mt-5 text-xl text-[#18191d] leading-relaxed whitespace-pre-line">
+          {answer}
+        </p>
       )}
     </div>
   );
 }
 
 export function FaqSection() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-20">
-        <div className="text-center mb-12">
-          <p className="text-[var(--color-accent)] text-sm font-semibold uppercase tracking-widest mb-3">FAQs</p>
-          <h2 className="font-semibold text-[var(--color-text-dark)] text-[var(--text-h2)]">
-            Frequently Asked Questions
-          </h2>
+    <section className="bg-white py-16 md:py-20">
+      <div className="max-w-[1228px] mx-auto px-4 md:px-8">
+        <div className="flex items-center justify-center gap-4 mb-10">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-black/25" />
+          <p className="text-[var(--color-text-dark)] text-base font-semibold uppercase tracking-widest whitespace-nowrap">FAQS</p>
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-black/25" />
         </div>
 
-        <div className="max-w-3xl mx-auto flex flex-col gap-4">
-          {faqs.map((faq) => (
-            <FaqItem key={faq.question} {...faq} />
+        <div className="flex flex-col gap-3 mb-10">
+          {faqs.map((faq, i) => (
+            <FaqItem
+              key={faq.question}
+              {...faq}
+              open={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
           ))}
         </div>
 
-        <div className="flex justify-center mt-10">
-          <Link href="#" className="text-[var(--color-brand)] text-base font-semibold border border-[var(--color-brand)] px-8 py-3 rounded-[var(--radius-pill)] hover:bg-[var(--color-brand)] hover:text-white transition-all">
-            View All FAQs
+        <div className="flex justify-center">
+          <Link href="#" className="text-[#066fc2] text-2xl font-medium hover:underline">
+            View All
           </Link>
         </div>
       </div>
