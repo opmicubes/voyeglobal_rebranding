@@ -24,20 +24,20 @@ const faqs = [
 
 function FaqItem({ question, answer, open, onToggle }) {
   return (
-    <div className="bg-[#f8f9fa] rounded-3xl p-10">
+    <div className="bg-[#f8f9fa] rounded-3xl p-5 md:p-10">
       <button
         onClick={() => onToggle()}
         aria-expanded={open}
-        className="w-full text-start flex items-start justify-between gap-16"
+        className="w-full text-start flex items-start justify-between gap-4 md:gap-16"
       >
-        <span className="text-2xl font-semibold text-[#2a2a2e]">{question}</span>
+        <span className="text-lg md:text-2xl font-semibold text-[#2a2a2e]">{question}</span>
         {open
           ? <LuChevronUp className="w-6 h-6 flex-shrink-0 mt-1 text-black" aria-hidden="true" />
           : <LuChevronDown className="w-6 h-6 flex-shrink-0 mt-1 text-black" aria-hidden="true" />
         }
       </button>
       {open && (
-        <p className="mt-5 text-xl text-[#18191d] leading-relaxed whitespace-pre-line">
+        <p className="mt-5 text-sm md:text-lg text-[#18191d] leading-relaxed whitespace-pre-line">
           {answer}
         </p>
       )}
@@ -69,7 +69,7 @@ export function FaqSection() {
         </div>
 
         <div className="flex justify-center">
-          <Link href="#" className="text-[#066fc2] text-2xl font-medium hover:underline">
+          <Link href="#" className="text-[#066fc2] text-base md:text-xl font-medium hover:underline">
             View All
           </Link>
         </div>

@@ -6,7 +6,6 @@ export function HeroSection() {
   return (
     <section className="relative bg-gradient-to-b from-[#C7E1FA] to-[#EBF4FD] min-h-[560px] md:min-h-[680px] overflow-visible">
 
-      {/* hero1 — left edge, fully clear */}
       <div className="absolute inset-y-0 start-0 w-2/5 md:w-[38%] overflow-hidden" aria-hidden="true">
         <Image
           src="/home/hero1.png"
@@ -18,7 +17,6 @@ export function HeroSection() {
         />
       </div>
 
-      {/* hero2 — right edge, fully clear */}
       <div className="absolute inset-y-0 end-0 w-2/5 md:w-[38%] overflow-hidden" aria-hidden="true">
         <Image
           src="/home/hero2.png"
@@ -30,9 +28,7 @@ export function HeroSection() {
         />
       </div>
 
-      {/* Center content */}
       <div className="relative z-20 flex flex-col items-center justify-center text-center min-h-[560px] md:min-h-[680px] px-4 pb-16">
-        {/* VOY logo */}
         <div className="mb-4">
           <Image
             src="/home/voye.svg"
@@ -44,15 +40,16 @@ export function HeroSection() {
           />
         </div>
 
-        {/* Headline */}
         <h1 className="text-[var(--color-brand-dark)] font-medium leading-[1.1] text-[clamp(2.5rem,5vw,var(--text-display))]">
           Always Connected.
         </h1>
+        <p className="mt-2 text-[var(--color-brand)] font-semibold text-base md:text-lg">
+          Anywhere. Anytime.
+        </p>
       </div>
 
-      {/* Search bar — half inside / half outside hero, centered */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-30 w-full max-w-2xl px-4">
-        <div className="bg-white rounded-[var(--radius-pill)] px-5 py-5 flex items-center gap-3 shadow-[0_4px_24px_rgba(7,122,213,0.12),0_1px_4px_rgba(0,0,0,0.06)]">
+        <div className="bg-white rounded-[var(--radius-pill)] px-5 py-3.5 flex items-center gap-3 shadow-[0_4px_24px_rgba(7,122,213,0.12),0_1px_4px_rgba(0,0,0,0.06)]">
           <LuSearch className="w-5 h-5 text-[var(--color-text-muted)] flex-shrink-0" aria-hidden="true" />
           <input
             type="text"

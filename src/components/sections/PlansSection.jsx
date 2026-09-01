@@ -58,16 +58,16 @@ function CountryCard({ item }) {
   return (
     <Link
       href="#"
-      className="bg-white rounded-lg px-5 py-4 flex items-center gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
+      className="bg-white rounded-lg px-3 py-3 lg:px-5 lg:py-4 flex items-center gap-2 lg:gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
     >
-      <div className="w-11 h-11 rounded-full overflow-hidden flex-shrink-0 relative border border-black/5">
+      <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-full overflow-hidden flex-shrink-0 relative border border-black/5">
         <Image src={item.image} alt={item.name} fill className="object-cover" sizes="44px" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-base font-semibold text-[var(--color-text-dark)] truncate">{item.name}</p>
-        <p className="text-sm text-[var(--color-text-secondary)]">From {item.lowest_price}</p>
+        <p className="text-sm font-semibold text-[var(--color-text-dark)] truncate">{item.name}</p>
+        <p className="text-xs lg:text-sm text-[var(--color-text-secondary)] truncate">Starting at {item.lowest_price}</p>
       </div>
-      <LuChevronRight className="text-[var(--color-text-muted)] w-5 h-5 flex-shrink-0" aria-hidden="true" />
+      <LuChevronRight className="text-[var(--color-text-muted)] w-4 h-4 flex-shrink-0 hidden lg:block" aria-hidden="true" />
     </Link>
   );
 }
@@ -76,18 +76,18 @@ function RegionalCard({ item }) {
   return (
     <Link
       href="#"
-      className="bg-white rounded-lg px-5 py-4 flex items-center gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
+      className="bg-white rounded-lg px-3 py-3 lg:px-5 lg:py-4 flex items-center gap-2 lg:gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
     >
-      <div className="w-11 h-11 rounded-full overflow-hidden flex-shrink-0 relative bg-[#f0f7ff] border border-black/5">
+      <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-full overflow-hidden flex-shrink-0 relative bg-[#f0f7ff] border border-black/5">
         <Image src={item.image} alt={item.name} fill className="object-contain p-1.5" sizes="44px" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-base font-semibold text-[var(--color-text-dark)] truncate">{item.name}</p>
-        <p className="text-sm text-[var(--color-text-secondary)]">
-          {item.supported_countries?.length ?? 0} countries · From {item.lowest_price}
+        <p className="text-sm font-semibold text-[var(--color-text-dark)] truncate">{item.name}</p>
+        <p className="text-xs lg:text-sm text-[var(--color-text-secondary)] truncate">
+          {item.supported_countries?.length ?? 0} · Starting at {item.lowest_price}
         </p>
       </div>
-      <LuChevronRight className="text-[var(--color-text-muted)] w-5 h-5 flex-shrink-0" aria-hidden="true" />
+      <LuChevronRight className="text-[var(--color-text-muted)] w-4 h-4 flex-shrink-0 hidden lg:block" aria-hidden="true" />
     </Link>
   );
 }
@@ -100,9 +100,9 @@ function PlanCard({ plan }) {
   return (
     <Link
       href="#"
-      className="bg-white rounded-lg px-5 py-4 flex items-center gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
+      className="bg-white rounded-lg px-3 py-3 lg:px-5 lg:py-4 flex items-center gap-2 lg:gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
     >
-      <div className="w-11 h-11 rounded-full overflow-hidden flex-shrink-0 relative bg-[#f0f7ff] border border-black/5">
+      <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-full overflow-hidden flex-shrink-0 relative bg-[#f0f7ff] border border-black/5">
         {plan.country_flag ? (
           <Image src={plan.country_flag} alt="" fill className="object-contain p-1.5" sizes="44px" aria-hidden="true" />
         ) : (
@@ -110,14 +110,14 @@ function PlanCard({ plan }) {
         )}
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-base font-semibold text-[var(--color-text-dark)]">
+        <p className="text-sm font-semibold text-[var(--color-text-dark)] truncate">
           {plan.data} · {plan.valid_for}
         </p>
-        <p className="text-sm text-[var(--color-text-secondary)]">
-          {coverageLabel}From {plan.price}
+        <p className="text-xs lg:text-sm text-[var(--color-text-secondary)] truncate">
+          {coverageLabel}Starting at {plan.price}
         </p>
       </div>
-      <LuChevronRight className="text-[var(--color-text-muted)] w-5 h-5 flex-shrink-0" aria-hidden="true" />
+      <LuChevronRight className="text-[var(--color-text-muted)] w-4 h-4 flex-shrink-0 hidden lg:block" aria-hidden="true" />
     </Link>
   );
 }
@@ -177,7 +177,7 @@ export function PlansSection({
         </div>
 
         {items.length > 0 && Card ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
             {items.map((item) => (
               <Card key={item.id ?? item.name} item={item} plan={item} />
             ))}

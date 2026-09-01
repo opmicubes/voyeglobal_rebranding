@@ -171,6 +171,7 @@ export function PhoneSupportSection({ devices = [] }) {
                 src="/home/support.png"
                 alt="Checking phone eSIM compatibility"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-contain object-right-bottom z-10"
                 loading="lazy"
               />

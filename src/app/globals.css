@@ -198,13 +198,10 @@ button {
   box-shadow: 0px 20px 20px 0px rgba(17, 24, 39, 0.04);
 }
 
-.cta-card-image {
-  background-image: var(--bg-image);
-  background-size: auto 110%;
-  background-position: right top;
-  background-repeat: no-repeat;
+.cta-overlay-1 {
+  background: linear-gradient(to right, #081D40 42%, rgba(8,29,64,0.85) 58%, transparent 80%);
 }
 
-.cta-card-overlay {
-  background: var(--overlay-gradient);
+.cta-overlay-2 {
+  background: linear-gradient(to right, #033C6A 35%, rgba(3,60,106,0.7) 52%, transparent 70%);
 }

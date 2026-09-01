@@ -14,7 +14,7 @@ const slides = [
     ctaPrimary: { label: 'Get a Plan', href: '#' },
     ctaSecondary: { label: 'Test at Home', href: '#' },
     image: '/home/view1.png',
-    gradient: 'linear-gradient(to right, #081D40 42%, rgba(8,29,64,0.85) 58%, transparent 80%)',
+    gradient: 'cta-overlay-1',
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const slides = [
     ctaPrimary: { label: 'View Plans', href: '#' },
     ctaSecondary: { label: 'Learn More', href: '#' },
     image: '/home/view2.svg',
-    gradient: 'linear-gradient(to right, #033C6A 35%, rgba(3,60,106,0.7) 52%, transparent 70%)',
+    gradient: 'cta-overlay-2',
   },
 ];
 
@@ -91,31 +91,17 @@ function SlideCard({ slide }) {
         </div>
       </div>
 
-      {slide.image.endsWith('.svg') ? (
-        <div
-          className="absolute inset-0 cta-card-image"
-          role="img"
-          aria-label={slide.line2}
-          style={{ '--bg-image': `url(${slide.image})` }}
+      <div className="absolute inset-0">
+        <Image
+          src={slide.image}
+          alt={slide.line2}
+          fill
+          className="object-cover object-right"
+          loading="lazy"
         />
-      ) : (
-        <div className="absolute top-0 end-0 h-full">
-          <Image
-            src={slide.image}
-            alt={slide.line2}
-            width={900}
-            height={500}
-            className="h-full w-auto max-w-none block"
-            loading="lazy"
-          />
-        </div>
-      )}
+      </div>
 
-      <div
-        className="absolute inset-0 pointer-events-none cta-card-overlay"
-        style={{ '--overlay-gradient': slide.gradient }}
-        aria-hidden="true"
-      />
+      <div className={`absolute inset-0 pointer-events-none ${slide.gradient}`} aria-hidden="true" />
     </div>
   );
 }

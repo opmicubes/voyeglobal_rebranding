@@ -1,5 +1,4 @@
-import { GiCheckMark } from 'react-icons/gi';
-import { LuX } from 'react-icons/lu';
+import { LuCheck, LuX } from 'react-icons/lu';
 
 const features = [
   'One eSIM for all supported destinations',
@@ -31,7 +30,7 @@ const checkData = {
 
 function Check({ yes }) {
   return yes ? (
-    <GiCheckMark className="w-5 h-5 text-[var(--color-brand)]" aria-label="Yes" />
+    <LuCheck className="w-5 h-5 text-[var(--color-brand)]" aria-label="Yes" />
   ) : (
     <LuX className="w-5 h-5 text-[var(--color-text-muted)]" aria-label="No" />
   );
