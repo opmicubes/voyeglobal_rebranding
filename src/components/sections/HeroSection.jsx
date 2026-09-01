@@ -4,7 +4,7 @@ import { LuSearch } from 'react-icons/lu';
 
 export function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-b from-[#C7E1FA] to-[#EBF4FD] min-h-[560px] md:min-h-[680px] overflow-visible">
+    <section className="relative bg-gradient-to-b from-[#C7E1FA] to-[#EBF4FD] min-h-[190px] md:min-h-[680px] overflow-visible">
 
       <div className="absolute inset-y-0 start-0 w-2/5 md:w-[38%] overflow-hidden" aria-hidden="true">
         <Image
@@ -28,24 +28,22 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative z-20 flex flex-col items-center justify-center text-center min-h-[560px] md:min-h-[680px] px-4 pb-16">
-        <div className="mb-4">
+      <div className="relative z-20 flex flex-col items-center justify-center text-center min-h-[190px] md:min-h-[680px] px-4 md:pb-16">
+        <div className="mb-2 md:mb-4">
           <Image
             src="/home/voye.svg"
             alt="Voye Global"
             width={246}
             height={100}
             priority
-            className="h-[100px] w-auto"
+            className="h-[29px] md:h-[100px] w-auto"
           />
         </div>
 
-        <h1 className="text-[var(--color-brand-dark)] font-medium leading-[1.1] text-[clamp(2.5rem,5vw,var(--text-display))]">
+        <h1 className="text-[var(--color-brand-dark)] leading-[1.1] text-[18px] md:text-[clamp(2.5rem,5vw,var(--text-display))]">
           Always Connected.
         </h1>
-        <p className="mt-2 text-[var(--color-brand)] font-semibold text-base md:text-lg">
-          Anywhere. Anytime.
-        </p>
+
       </div>
 
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-30 w-full max-w-2xl px-4">

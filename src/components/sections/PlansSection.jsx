@@ -79,7 +79,7 @@ function RegionalCard({ item }) {
       className="bg-white rounded-lg px-3 py-3 lg:px-5 lg:py-4 flex items-center gap-2 lg:gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
     >
       <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-full overflow-hidden flex-shrink-0 relative bg-[#f0f7ff] border border-black/5">
-        <Image src={item.image} alt={item.name} fill className="object-contain p-1.5" sizes="44px" />
+        <Image src={item.image} alt={item.name} fill className="object-contain" sizes="44px" />
       </div>
       <div className="flex-1 min-w-0">
         <p className="text-sm font-semibold text-[var(--color-text-dark)] truncate">{item.name}</p>
@@ -104,7 +104,7 @@ function PlanCard({ plan }) {
     >
       <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-full overflow-hidden flex-shrink-0 relative bg-[#f0f7ff] border border-black/5">
         {plan.country_flag ? (
-          <Image src={plan.country_flag} alt="" fill className="object-contain p-1.5" sizes="44px" aria-hidden="true" />
+          <Image src={plan.country_flag} alt="" fill className="object-contain" sizes="44px" aria-hidden="true" />
         ) : (
           <div className="w-full h-full bg-[#e8f4ff] rounded-full" />
         )}

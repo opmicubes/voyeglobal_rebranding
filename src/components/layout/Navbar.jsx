@@ -75,7 +75,7 @@ export function Navbar() {
 
       {/* Mobile / full menu drawer */}
       {menuOpen && (
-        <div className="bg-white border-t border-[var(--color-border)] px-5 pb-5 pt-3">
+        <div className="absolute top-full start-0 end-0 bg-white border-t border-[var(--color-border)] px-5 pb-5 pt-3 z-[199] shadow-md">
           <nav className="flex flex-col gap-4" aria-label="Menu">
             {['Plans', 'About', 'Support', 'Refer & Earn'].map((item) => (
               <Link key={item} href="#" className="text-base text-[var(--color-text-primary)] py-1 hover:text-[var(--color-brand)] transition-colors">

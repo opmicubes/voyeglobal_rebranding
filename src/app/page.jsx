@@ -2,6 +2,7 @@ import { fetchEsimCategoriesWithEn } from '@/lib/gql/queries/esimCategories';
 import { fetchEsimProductsNew } from '@/lib/gql/queries/esimProductsNew';
 import { fetchSupportedDevicesServer } from '@/lib/gql/queries/supportedDevices';
 import { fetchPopularPlansAndPrices } from '@/lib/gql/queries/popularPlansAndPrices';
+import { FaWhatsapp } from 'react-icons/fa';
 import { AnnouncementBar } from '@/components/sections/AnnouncementBar';
 import { Navbar } from '@/components/layout/Navbar';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -86,6 +87,15 @@ export default async function HomePage() {
         <CtaSection />
       </main>
       <Footer />
+      <a
+        href="https://wa.me/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+        className="fixed bottom-6 end-6 z-50 w-12 h-12 bg-[var(--color-brand)] rounded-full flex items-center justify-center hover:bg-[var(--color-brand-dark)] transition-colors shadow-[var(--shadow-brand)]"
+      >
+        <FaWhatsapp className="w-6 h-6 text-white" aria-hidden="true" />
+      </a>
     </>
   );
 }
