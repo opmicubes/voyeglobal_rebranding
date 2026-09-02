@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { LuGlobe, LuShoppingCart, LuX, LuMenu } from 'react-icons/lu';
@@ -8,17 +8,27 @@ import { FaRegCircleUser } from 'react-icons/fa6';
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [menuOpen]);
+
   return (
-    <header className="sticky top-0 z-[200] bg-white border-b border-[var(--color-border)]">
-      <div className="max-w-[1400px] mx-auto px-5 md:px-10 h-16 md:h-[72px] flex items-center gap-6">
+    <header
+      className="sticky top-0 z-[200] bg-white border-b border-[var(--color-border)]"
+      onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setMenuOpen(false); }}
+    >
+      <div className="max-w-[1400px] mx-auto px-5 md:px-10 h-14 md:h-[60px] flex items-center gap-6">
 
         {/* Logo */}
         <Link href="/" className="flex-shrink-0" aria-label="Voye Global — home">
           <Image
             src="/home/voyelogo.svg"
             alt="Voye Global"
-            width={90}
-            height={37}
+            width={80}
+            height={25}
             priority
           />
         </Link>
@@ -29,7 +39,7 @@ export function Navbar() {
             <Link
               key={item}
               href="#"
-              className="text-sm font-medium text-[var(--color-text-primary)] hover:text-[var(--color-brand)] transition-colors whitespace-nowrap"
+              className="text-base font-normal text-[var(--color-text-primary)] hover:text-[var(--color-brand)] transition-colors whitespace-nowrap"
             >
               {item}
             </Link>
@@ -45,7 +55,7 @@ export function Navbar() {
           {/* Language selector */}
           <button
             aria-label="Select language"
-            className="hidden md:flex items-center bg-[#F2F2F2] px-2 py-1.5 rounded-full gap-1.5 text-sm font-medium text-[var(--color-text-primary)] hover:text-[var(--color-brand)] transition-colors"
+            className="hidden md:flex items-center bg-[#F2F2F2] px-2 py-1.5 rounded-full gap-1.5 text-base font-semibold text-[var(--color-text-primary)] hover:text-[var(--color-brand)] transition-colors"
           >
             <LuGlobe className="w-[18px] h-[18px] " aria-hidden="true" />
             <span>EN</span>

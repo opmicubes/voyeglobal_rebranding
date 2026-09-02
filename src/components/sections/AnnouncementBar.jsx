@@ -7,10 +7,10 @@ export function AnnouncementBar() {
   if (!visible) return null;
 
   return (
-    <div className="bg-[#033359] text-white text-[12px] md:text-sm py-2 md:py-2.5 px-4 flex items-center justify-center gap-2">
+    <div className="bg-[#033359] text-white text-[12px] md:text-[16px] py-2 md:py-1.5 px-4 flex items-center justify-center gap-2">
       <p className="text-center">
         ⚡ Use coupon code{' '}
-        <span className="font-semibold bg-white text-[var(--color-brand)] px-1.5 py-0.5 rounded text-xs mx-1">
+        <span className="font-bold bg-white text-[var(--color-brand)] px-1.5 py-0.5 rounded text-xs mx-1">
           APP15
         </span>{' '}
         for 15% off first order!

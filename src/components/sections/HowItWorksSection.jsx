@@ -13,15 +13,15 @@ const steps = [
 
 function Step1Card() {
   return (
-    <div className="relative bg-white rounded-2xl overflow-hidden flex flex-col shadow-[var(--shadow-subtle)] h-[420px]">
-      <div className="p-6 pb-0 md:px-8 pt-8">
-        <span className="bg-[var(--color-brand)] text-[#e9ebee] md:text-white text-[12px] font-medium md:font-semibold px-4 py-1.5 rounded-[10px] md:rounded-sm mb-6 inline-block">
+    <div className="relative bg-white rounded-[24px] overflow-hidden flex flex-col shadow-[var(--shadow-subtle)] h-[420px]">
+      <div className="p-6 pb-0 md:px-5 pt-8">
+        <span className="bg-[var(--color-brand)] text-[#e9ebee] md:text-white text-[12px] font-medium md:text-[18px] md:font-medium px-4 py-1.5 rounded-[10px] md:rounded-[16px] mb-6 inline-block">
           Step 1
         </span>
-        <h3 className="font-bold text-[#2a2a2e] text-[14.6px] md:text-lg mb-4">
+        <h3 className="font-bold md:font-semibold text-[#2a2a2e] text-[14.6px] md:text-[20px] mb-4">
           Select your plan
         </h3>
-        <p className="text-[#3f4043] text-[12px] md:text-sm leading-relaxed">
+        <p className="text-[#3f4043] text-[12px] md:text-[18px] leading-relaxed">
           Choose the ideal data and validity for your trip from Voye Global&apos;s flexible options.
         </p>
       </div>
@@ -44,15 +44,15 @@ function Step1Card() {
 
 function Step2Card() {
   return (
-    <div className="relative bg-white rounded-2xl overflow-hidden flex flex-col shadow-[var(--shadow-subtle)] h-[420px]">
-      <div className="p-6 md:p-8">
-        <span className="bg-[var(--color-brand)] text-[#e9ebee] md:text-white text-[12px] font-medium md:font-semibold px-4 py-1.5 rounded-[10px] md:rounded-sm mb-6 inline-block">
+    <div className="relative bg-white rounded-[24px] overflow-hidden flex flex-col shadow-[var(--shadow-subtle)] h-[420px]">
+      <div className="p-6 md:pt-8 md:px-5">
+        <span className="bg-[var(--color-brand)] text-[#e9ebee] md:text-white text-[12px] font-medium md:text-[18px] md:font-medium px-4 py-1.5 rounded-[10px] md:rounded-[16px] mb-6 inline-block">
           Step 2
         </span>
-        <h3 className="font-bold text-[#2a2a2e] text-[14.6px] md:text-lg mb-4">
+        <h3 className="font-bold md:font-semibold text-[#2a2a2e] text-[14.6px] md:text-[20px] mb-4">
           Install your eSIM
         </h3>
-        <p className="text-[#3f4043] text-[12px] md:text-sm leading-relaxed">
+        <p className="text-[#3f4043] text-[12px] md:text-[18px] leading-relaxed">
           Install your eSIM in just a few simple steps — no physical SIM card needed.
         </p>
       </div>
@@ -71,15 +71,15 @@ function Step2Card() {
 
 function Step3Card() {
   return (
-    <div className="relative bg-white rounded-2xl overflow-hidden flex flex-col shadow-[var(--shadow-subtle)] h-[420px]">
-      <div className="p-6 pb-0 md:px-8 pt-8">
-        <span className="bg-[var(--color-brand)] text-[#e9ebee] md:text-white text-[12px] font-medium md:font-semibold px-4 py-1.5 rounded-[10px] md:rounded-sm mb-6 inline-block">
+    <div className="relative bg-white rounded-[24px] overflow-hidden flex flex-col shadow-[var(--shadow-subtle)] h-[420px]">
+      <div className="p-6 pb-0 md:px-5 pt-8">
+        <span className="bg-[var(--color-brand)] text-[#e9ebee] md:text-white text-[12px] font-medium md:text-[18px] md:font-medium px-4 py-1.5 rounded-[10px] md:rounded-[16px] mb-6 inline-block">
           Step 3
         </span>
-        <h3 className="font-bold text-[#2a2a2e] text-[14.6px] md:text-lg mb-4">
+        <h3 className="font-bold md:font-semibold text-[#2a2a2e] text-[14.6px] md:text-[20px] mb-4">
           Activate &amp; enjoy your trip
         </h3>
-        <p className="text-[#3f4043] text-[12px] md:text-sm leading-relaxed">
+        <p className="text-[#3f4043] text-[12px] md:text-[18px] leading-relaxed">
           • Activate your plan, connect to the local network, and start enjoying seamless coverage from the moment you land.
         </p>
       </div>
@@ -120,7 +120,7 @@ export function HowItWorksSection() {
 
         <div className="flex items-center justify-center gap-4 mb-10">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-black/25" />
-          <p className="text-[var(--color-text-dark)] text-[12.4px] md:text-base font-semibold uppercase tracking-widest whitespace-nowrap">
+          <p className="text-[var(--color-text-dark)] text-[12.4px] md:text-[24px] font-normal md:font-medium uppercase tracking-widest whitespace-nowrap">
             HOW VOY&apos;S ESIM WORKS
           </p>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-black/25" />
@@ -150,7 +150,7 @@ export function HowItWorksSection() {
         </div>
 
         {/* Desktop grid */}
-        <div className="hidden md:grid grid-cols-3 gap-6">
+        <div className="hidden md:grid grid-cols-3 md:gap-5">
           <Step1Card />
           <Step2Card />
           <Step3Card />

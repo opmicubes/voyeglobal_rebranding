@@ -30,14 +30,14 @@ function FaqItem({ question, answer, open, onToggle }) {
         aria-expanded={open}
         className="w-full text-start flex items-start justify-between gap-4 md:gap-16"
       >
-        <span className="text-[12.5px] md:text-2xl font-semibold text-[#2a2a2e]">{question}</span>
+        <span className="text-[12.48px] md:text-[24px] font-semibold text-[#2a2a2e]">{question}</span>
         {open
           ? <LuChevronUp className="w-4 h-4 md:w-6 md:h-6 flex-shrink-0 mt-1 text-black" aria-hidden="true" />
           : <LuChevronDown className="w-4 h-4 md:w-6 md:h-6 flex-shrink-0 mt-1 text-black" aria-hidden="true" />
         }
       </button>
       {open && (
-        <p className="mt-5 text-[12.5px] md:text-lg text-[#18191d] leading-relaxed whitespace-pre-line">
+        <p className="mt-5 text-[12.48px] md:text-[20px] text-[#18191d] leading-relaxed whitespace-pre-line">
           {answer}
         </p>
       )}
@@ -53,7 +53,7 @@ export function FaqSection() {
       <div className="max-w-[1228px] mx-auto px-4 md:px-8">
         <div className="flex items-center justify-center gap-4 mb-10">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-black/25" />
-          <p className="text-[var(--color-text-dark)] text-[12.4px] md:text-base font-semibold uppercase tracking-widest whitespace-nowrap">FAQS</p>
+          <p className="text-[var(--color-text-dark)] text-[12.4px] md:text-[24px] font-normal md:font-medium uppercase tracking-widest whitespace-nowrap">FAQS</p>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-black/25" />
         </div>
 
@@ -69,7 +69,7 @@ export function FaqSection() {
         </div>
 
         <div className="flex justify-center">
-          <Link href="#" className="text-[#066fc2] text-[12.5px] md:text-xl font-medium hover:underline">
+          <Link href="#" className="text-[#066fc2] text-[12.48px] md:text-[24px] font-medium hover:underline">
             View All
           </Link>
         </div>

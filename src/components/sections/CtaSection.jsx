@@ -70,21 +70,21 @@ function SlideCard({ slide }) {
       />
 
       <div className="absolute top-4 start-4 md:top-[60px] md:start-[60px] flex flex-col gap-2 md:gap-5 z-10 w-[calc(100%-2rem)] md:w-[460px]">
-        <h2 className="font-bold text-white text-[15.7px] md:text-[38px] leading-[1.2]">
+        <h2 className="font-bold text-white text-[15.7px] md:text-[41px] leading-[1.2]">
           <span className="block">{slide.line1}</span>
           <span className="block">{slide.line2}</span>
         </h2>
-        <p className="text-white/80 text-xs md:text-base leading-relaxed">{slide.description}</p>
+        <p className="text-white/80 text-xs md:text-[18px] leading-relaxed">{slide.description}</p>
         <div className="flex items-center gap-2 md:gap-4">
           <Link
             href={slide.ctaPrimary.href}
-            className="bg-white text-[#0c6ab6] font-semibold text-xs md:text-base px-4 md:px-8 py-2 md:py-4 rounded-full hover:bg-white/90 transition-colors whitespace-nowrap"
+            className="bg-white text-[#0c6ab6] font-semibold text-xs md:text-[17px] px-4 md:px-8 py-2 md:py-4 rounded-full hover:bg-white/90 transition-colors whitespace-nowrap"
           >
             {slide.ctaPrimary.label}
           </Link>
           <Link
             href={slide.ctaSecondary.href}
-            className="bg-white/16 border border-white/50 text-white font-semibold text-xs md:text-base px-4 md:px-8 py-2 md:py-4 rounded-full hover:bg-white/25 transition-colors whitespace-nowrap"
+            className="bg-white/16 border border-white/50 text-white font-semibold text-xs md:text-[17px] px-4 md:px-8 py-2 md:py-4 rounded-full hover:bg-white/25 transition-colors whitespace-nowrap"
           >
             {slide.ctaSecondary.label}
           </Link>
