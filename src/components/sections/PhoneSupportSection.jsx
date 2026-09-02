@@ -18,25 +18,10 @@ function DeviceSearch({ devices }) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
-  const [dropdownStyle, setDropdownStyle] = useState({});
   const wrapperRef = useRef(null);
-  const inputRef = useRef(null);
 
   const [results, setResults] = useState([]);
   const allDevices = buildSearchList(devices);
-
-  function updateDropdownPos() {
-    if (inputRef.current) {
-      const rect = inputRef.current.getBoundingClientRect();
-      setDropdownStyle({
-        position: 'fixed',
-        top: rect.bottom + 4,
-        left: rect.left,
-        width: rect.width,
-        zIndex: 9999,
-      });
-    }
-  }
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -47,17 +32,6 @@ function DeviceSearch({ devices }) {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-
-  useEffect(() => {
-    if (open) {
-      window.addEventListener('scroll', updateDropdownPos, true);
-      window.addEventListener('resize', updateDropdownPos);
-    }
-    return () => {
-      window.removeEventListener('scroll', updateDropdownPos, true);
-      window.removeEventListener('resize', updateDropdownPos);
-    };
-  }, [open]);
 
   function handleChange(e) {
     setQuery(e.target.value);
@@ -71,7 +45,6 @@ function DeviceSearch({ devices }) {
   function triggerSearch() {
     setLoading(true);
     setSearched(true);
-    updateDropdownPos();
     setTimeout(() => {
       const q = query.trim().toLowerCase();
       const filtered = q.length > 0
@@ -89,20 +62,34 @@ function DeviceSearch({ devices }) {
 
   return (
     <div>
-      <p className="text-sm text-gray-600 mb-2">Search your device model to check if it&apos;s eSIM compatible:</p>
-      <div className="flex flex-col sm:flex-row gap-3 mb-4 relative" ref={wrapperRef}>
-        <div className="flex-1">
+      <p className="text-[12.5px] text-gray-600 mb-2">Search your device to check eSIM compatibility:</p>
+      <div className="flex flex-col sm:flex-row gap-3 mb-4" ref={wrapperRef}>
+        <div className="flex-1 relative">
           <input
-            ref={inputRef}
             type="text"
             value={query}
             onChange={handleChange}
             onKeyDown={(e) => { if (e.key === 'Enter' && !loading) triggerSearch(); }}
-            placeholder="Search your device model..."
-            className="w-full border border-[var(--color-border)] bg-white rounded-[var(--radius-md)] px-4 py-3 text-base text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] outline-none focus-visible:border-[var(--color-brand)] focus-visible:ring-2 focus-visible:ring-[var(--color-brand)]/20 transition"
+            placeholder="Insert your model"
+            className="w-full border border-[#c9ced4] bg-white rounded-[8.5px] md:rounded-[var(--radius-md)] px-4 py-1.5 md:py-3 text-[12.5px] md:text-base text-[var(--color-text-primary)] placeholder:text-[#6b7280] outline-none focus-visible:border-[var(--color-brand)] focus-visible:ring-2 focus-visible:ring-[var(--color-brand)]/20 transition"
             aria-label="Search your phone model"
             autoComplete="off"
           />
+          {open && results.length > 0 && (
+            <ul className="absolute top-full start-0 end-0 z-50 mt-1 bg-white border border-[var(--color-border)] rounded-[var(--radius-md)] shadow-lg overflow-y-auto max-h-[240px]">
+              {results.map((item, i) => (
+                <li key={i} className="px-4 py-2.5 text-sm border-b border-[var(--color-border)] last:border-0">
+                  <span className="font-medium text-[var(--color-text-dark)]">{item.model}</span>
+                  <span className="text-[var(--color-text-muted)] ms-2">{item.brand}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {open && searched && results.length === 0 && query.trim().length > 0 && (
+            <ul className="absolute top-full start-0 end-0 z-50 mt-1 bg-white border border-[var(--color-border)] rounded-[var(--radius-md)] shadow-lg">
+              <li className="px-4 py-3 text-sm text-[var(--color-text-muted)]">No matching device found.</li>
+            </ul>
+          )}
         </div>
         <button
           onClick={triggerSearch}
@@ -115,25 +102,7 @@ function DeviceSearch({ devices }) {
           Check Now
         </button>
       </div>
-      {open && results.length > 0 && (
-        <ul
-          style={dropdownStyle}
-          className="bg-white border border-[var(--color-border)] rounded-[var(--radius-md)] shadow-lg overflow-y-auto max-h-[240px]"
-        >
-          {results.map((item, i) => (
-            <li key={i} className="px-4 py-2.5 text-sm border-b border-[var(--color-border)] last:border-0">
-              <span className="font-medium text-[var(--color-text-dark)]">{item.model}</span>
-              <span className="text-[var(--color-text-muted)] ms-2">{item.brand}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-      {open && searched && results.length === 0 && query.trim().length > 0 && (
-        <ul style={dropdownStyle} className="bg-white border border-[var(--color-border)] rounded-[var(--radius-md)] shadow-lg">
-          <li className="px-4 py-3 text-sm text-[var(--color-text-muted)]">No matching device found.</li>
-        </ul>
-      )}
-      <Link href="#" className="text-[#1000F3] hover:underline text-xs">
+      <Link href="#" className="text-[#1000F3] hover:underline text-[12.5px]">
         Or check out the full list of supported devices →
       </Link>
     </div>
@@ -144,14 +113,13 @@ export function PhoneSupportSection({ devices = [] }) {
   return (
     <section className="bg-white py-16 md:py-20">
       <div className="max-w-[1408px] mx-auto px-4 md:px-8">
-        <div className="bg-[#FFF8E7] rounded-3xl overflow-hidden">
+        <div className="bg-[#fff4e2] rounded-[20px] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
-            <div className="px-8 md:px-14 py-12 md:py-16 flex flex-col justify-center">
-              <h2 className="text-2xl md:text-3xl font-bold leading-snug mb-4">
-                <span className="font-normal text-[var(--color-text-primary)]">Does my phone </span>
-                <span className="font-bold text-[var(--color-brand)]">support eSIM?</span>
+            <div className="p-5 md:px-14 md:py-16 flex flex-col justify-center">
+              <h2 className="text-[#2a2a2e] text-[16.6px] font-normal md:text-3xl md:font-bold leading-snug mb-4">
+                Does my phone support eSIM?
               </h2>
-              <p className="text-sm md:text-base text-[var(--color-text-secondary)] mb-8 leading-relaxed">
+              <p className="text-[#2a2a2e] text-[12.5px] md:text-base mb-4 md:mb-8 leading-relaxed">
                 Voye Global provides a comprehensive compatibility guide on their website to help you verify if your device can use their eSIM service.
               </p>
 

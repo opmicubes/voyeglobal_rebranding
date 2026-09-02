@@ -205,3 +205,11 @@ button {
 .cta-overlay-2 {
   background: linear-gradient(to right, #033C6A 35%, rgba(3,60,106,0.7) 52%, transparent 70%);
 }
+
+@media (max-width: 767px) {
+  .cta-keen-slide {
+    min-width: 90vw;
+    max-width: 90vw;
+  }
+}
+

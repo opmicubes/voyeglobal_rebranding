@@ -52,12 +52,12 @@ export function Navbar() {
           </button>
 
           {/* Cart */}
-          <button aria-label="Cart" className="hidden md:flex bg-[#F2F2F2] px-2 py-1.5 items-center justify-center w-9 h-9 rounded-full hover:bg-[var(--color-surface)] transition-colors text-[var(--color-text-primary)] hover:text-[var(--color-brand)]">
+          <button aria-label="Cart" className="flex bg-[#F2F2F2] px-2 py-1.5 items-center justify-center w-[38px] h-[38px] rounded-full hover:bg-[var(--color-surface)] transition-colors text-[var(--color-text-primary)] hover:text-[var(--color-brand)]">
             <LuShoppingCart className="w-5 h-5" aria-hidden="true" />
           </button>
 
           {/* User */}
-          <button aria-label="Account" className="hidden md:flex bg-[#F2F2F2] px-2 py-1.5 items-center justify-center w-9 h-9 rounded-full hover:bg-[var(--color-surface)] transition-colors text-[var(--color-text-primary)] hover:text-[var(--color-brand)]">
+          <button aria-label="Account" className="flex bg-[#F2F2F2] px-2 py-1.5 items-center justify-center w-[38px] h-[38px] rounded-full hover:bg-[var(--color-surface)] transition-colors text-[var(--color-text-primary)] hover:text-[var(--color-brand)]">
             <FaRegCircleUser className="w-5 h-5" aria-hidden="true" />
           </button>
 
@@ -66,7 +66,7 @@ export function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
-            className="flex items-center justify-center w-9 h-9 rounded-full bg-[#F2F2F2] px-2 py-1.5 rounded-full hover:bg-[var(--color-surface)] transition-colors text-[var(--color-text-primary)]"
+            className="flex items-center justify-center w-9 h-9 rounded-full bg-[#F2F2F2] px-2 py-1.5 hover:bg-[var(--color-surface)] transition-colors text-[var(--color-text-primary)]"
           >
             {menuOpen ? <LuX className="w-[22px] h-[22px]" aria-hidden="true" /> : <LuMenu className="w-[22px] h-[22px]" aria-hidden="true" />}
           </button>

@@ -4,7 +4,7 @@ import { LuChevronRight } from 'react-icons/lu';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const TABS = ['Global', 'Regional', 'Country', 'Family Plans', 'Cruise'];
+const TABS = ['Global', 'Regional', 'Country', 'Family', 'Cruise'];
 
 function normalizeCountryName(value) {
   return String(value ?? '')
@@ -58,14 +58,14 @@ function CountryCard({ item }) {
   return (
     <Link
       href="#"
-      className="bg-white rounded-lg px-3 py-3 lg:px-5 lg:py-4 flex items-center gap-2 lg:gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
+      className="bg-[#f8f9fa] md:bg-white rounded-[12px] md:rounded-lg p-2 lg:px-5 lg:py-4 flex items-center gap-2 lg:gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
     >
       <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-full overflow-hidden flex-shrink-0 relative border border-black/5">
         <Image src={item.image} alt={item.name} fill className="object-cover" sizes="44px" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-semibold text-[var(--color-text-dark)] truncate">{item.name}</p>
-        <p className="text-xs lg:text-sm text-[var(--color-text-secondary)] truncate">Starting at {item.lowest_price}</p>
+        <p className="text-[14.5px] md:text-sm font-medium md:font-semibold text-[var(--color-text-dark)] truncate">{item.name}</p>
+        <p className="text-[10.4px] lg:text-sm text-[var(--color-text-secondary)] truncate">Starting at {item.lowest_price}</p>
       </div>
       <LuChevronRight className="text-[var(--color-text-muted)] w-4 h-4 flex-shrink-0 hidden lg:block" aria-hidden="true" />
     </Link>
@@ -76,14 +76,14 @@ function RegionalCard({ item }) {
   return (
     <Link
       href="#"
-      className="bg-white rounded-lg px-3 py-3 lg:px-5 lg:py-4 flex items-center gap-2 lg:gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
+      className="bg-[#f8f9fa] md:bg-white rounded-[12px] md:rounded-lg p-2 lg:px-5 lg:py-4 flex items-center gap-2 lg:gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
     >
       <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-full overflow-hidden flex-shrink-0 relative bg-[#f0f7ff] border border-black/5">
         <Image src={item.image} alt={item.name} fill className="object-contain" sizes="44px" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-semibold text-[var(--color-text-dark)] truncate">{item.name}</p>
-        <p className="text-xs lg:text-sm text-[var(--color-text-secondary)] truncate">
+        <p className="text-[14.5px] md:text-sm font-medium md:font-semibold text-[var(--color-text-dark)] truncate">{item.name}</p>
+        <p className="text-[10.4px] lg:text-sm text-[var(--color-text-secondary)] truncate">
           {item.supported_countries?.length ?? 0} · Starting at {item.lowest_price}
         </p>
       </div>
@@ -100,7 +100,7 @@ function PlanCard({ plan }) {
   return (
     <Link
       href="#"
-      className="bg-white rounded-lg px-3 py-3 lg:px-5 lg:py-4 flex items-center gap-2 lg:gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
+      className="bg-[#f8f9fa] md:bg-white rounded-[12px] md:rounded-lg p-2 lg:px-5 lg:py-4 flex items-center gap-2 lg:gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
     >
       <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-full overflow-hidden flex-shrink-0 relative bg-[#f0f7ff] border border-black/5">
         {plan.country_flag ? (
@@ -110,10 +110,10 @@ function PlanCard({ plan }) {
         )}
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-semibold text-[var(--color-text-dark)] truncate">
+        <p className="text-[14.5px] md:text-sm font-medium md:font-semibold text-[var(--color-text-dark)] truncate">
           {plan.data} · {plan.valid_for}
         </p>
-        <p className="text-xs lg:text-sm text-[var(--color-text-secondary)] truncate">
+        <p className="text-[10.4px] lg:text-sm text-[var(--color-text-secondary)] truncate">
           {coverageLabel}Starting at {plan.price}
         </p>
       </div>
@@ -136,18 +136,18 @@ export function PlansSection({
     Regional: { items: cleanList(regional).sort((a, b) => a.name.localeCompare(b.name)), Card: RegionalCard },
     Global: { items: globalPlans.slice(0, 12), Card: PlanCard },
     Cruise: { items: cruisePlans, Card: PlanCard },
-    'Family Plans': { items: [], Card: null },
+    'Family': { items: [], Card: null },
   };
 
   const { items, Card } = tabData[activeTab] ?? { items: [], Card: null };
 
   return (
-    <section className="bg-white py-12 md:py-16 px-4 md:px-8 relative z-10 rounded-b-[80px] -mb-16">
-      <div className="max-w-[1408px] mx-auto bg-gradient-to-b from-[#A0D4FF] to-[#ECF7FF] rounded-3xl px-8 md:px-14 py-12">
+    <section className="bg-white py-12 md:py-16 md:px-8 relative z-10 rounded-b-[30px] md:rounded-b-[80px] -mb-16">
+      <div className="max-w-[1408px] mx-auto bg-gradient-to-b from-[#a0d4ff] via-[#d9eeff] to-white rounded-[20px] md:rounded-3xl pt-10 px-[22px] pb-5 md:px-14 md:py-12">
 
-        <div className="flex items-center justify-center gap-4 mb-10">
+        <div className="flex items-center justify-center gap-4 mb-5 md:mb-10">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-black/25" />
-          <p className="text-[var(--color-text-dark)] text-base font-semibold uppercase tracking-widest whitespace-nowrap">
+          <p className="text-[var(--color-text-dark)] text-[12.4px] md:text-base font-semibold uppercase tracking-widest whitespace-nowrap">
             EXPLORE PLANS
           </p>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-black/25" />
@@ -164,7 +164,7 @@ export function PlansSection({
                 role="tab"
                 aria-selected={activeTab === tab}
                 onClick={() => setActiveTab(tab)}
-                className={`flex-1 text-center py-3 rounded-full text-sm font-medium transition-all ${
+                className={`flex-1 text-center py-2 md:py-3 rounded-full text-[12px] md:text-sm font-medium transition-all ${
                   activeTab === tab
                     ? 'bg-[var(--color-brand)] text-white shadow-[var(--shadow-brand)]'
                     : 'text-[var(--color-text-primary)] hover:text-[var(--color-brand)]'
@@ -184,14 +184,14 @@ export function PlansSection({
           </div>
         ) : (
           <p className="text-center py-16 text-[var(--color-text-secondary)]">
-            {activeTab === 'Family Plans' ? 'Family plans coming soon.' : 'No plans available.'}
+            {activeTab === 'Family' ? 'Family plans coming soon.' : 'No plans available.'}
           </p>
         )}
 
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-4 md:mt-8">
           <Link
             href="#"
-            className="flex items-center gap-2 text-[var(--color-brand)] text-base font-semibold hover:underline transition-all"
+            className="flex items-center gap-2 text-[var(--color-brand)] text-[14.5px] md:text-base font-semibold hover:underline transition-all"
           >
             View All
             <LuChevronRight className="w-3.5 h-3.5" aria-hidden="true" />
