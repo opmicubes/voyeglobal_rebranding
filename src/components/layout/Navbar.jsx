@@ -5,22 +5,28 @@ import Image from 'next/image';
 import { LuGlobe, LuShoppingCart, LuX, LuMenu } from 'react-icons/lu';
 import { FaRegCircleUser } from 'react-icons/fa6';
 
-export function Navbar() {
+export function Navbar({ logo, siteName = 'Home' }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-[200] bg-white border-b border-[var(--color-border)]">
       <div className="max-w-[1400px] mx-auto px-5 md:px-10 h-16 md:h-[72px] flex items-center gap-6">
 
-        {/* Logo */}
-        <Link href="/" className="flex-shrink-0" aria-label="Voye Global — home">
-          <Image
-            src="/home/voyelogo.svg"
-            alt="Voye Global"
-            width={90}
-            height={37}
-            priority
-          />
+        {/* Logo — brand asset if the site provides one, else a text wordmark */}
+        <Link href="/" className="flex-shrink-0" aria-label={`${siteName} — home`}>
+          {logo?.src ? (
+            <Image
+              src={logo.src}
+              alt={logo.alt ?? siteName}
+              width={logo.width ?? 90}
+              height={logo.height ?? 37}
+              priority
+            />
+          ) : (
+            <span className="text-2xl font-bold text-[var(--color-brand)]">
+              {siteName}
+            </span>
+          )}
         </Link>
 
         {/* Nav links — immediately after logo, left-aligned */}

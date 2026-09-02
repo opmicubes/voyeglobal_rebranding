@@ -10,19 +10,25 @@ const footerLinks = {
   Account: ['Login', 'Register', 'Account Settings', 'Subscription Details'],
 };
 
-export function Footer() {
+export function Footer({ logo, siteName = '' }) {
   return (
     <footer className="bg-[linear-gradient(to_bottom,_#FFFFFF_53%,_#BBE1FF_100%)] md:bg-[linear-gradient(to_bottom,_#FFFFFF_33%,_#BBE1FF_100%)]">
       {/* Content */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-16 pt-6 pb-2 md:pt-14 md:pb-12">
-        {/* Logo — centered */}
+        {/* Logo — centered; brand asset if provided, else a text wordmark */}
         <div className="flex justify-center mb-16">
-          <Image
-            src="/home/voyelogo.svg"
-            alt="Voye Global"
-            width={175}
-            height={71}
-          />
+          {logo?.src ? (
+            <Image
+              src={logo.src}
+              alt={logo.alt ?? siteName}
+              width={175}
+              height={71}
+            />
+          ) : (
+            <span className="text-3xl font-bold text-[var(--color-brand)]">
+              {siteName}
+            </span>
+          )}
         </div>
 
         {/* Nav columns */}
