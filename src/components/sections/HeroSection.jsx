@@ -40,7 +40,7 @@ export function HeroSection() {
           />
         </div>
 
-        <h1 className="text-[var(--color-brand-dark)] leading-[1.1] text-[16px] font-light md:font-normal md:text-[clamp(2.5rem,5vw,var(--text-display))]">
+        <h1 className="text-[var(--color-brand-dark)] leading-[1.1] text-[16px] font-light md:font-medium md:text-[60px]">
           Always Connected!
         </h1>
 
@@ -52,7 +52,7 @@ export function HeroSection() {
           <input
             type="text"
             placeholder="Heading next to?"
-            className="flex-1 text-[14.5px] md:text-base text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] outline-none bg-transparent"
+            className="flex-1 text-[22px] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-secondary)] outline-none bg-transparent"
             aria-label="Search destination"
           />
         </div>

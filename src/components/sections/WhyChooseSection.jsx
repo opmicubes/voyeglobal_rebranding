@@ -17,9 +17,9 @@ const cards = [
 
 function AffordableCard() {
   return (
-    <div className="bg-[#eef1f6] rounded-[16px] overflow-hidden flex flex-col h-full">
-      <div className="p-6 md:p-8">
-        <h3 className="font-semibold text-[var(--color-text-dark)] text-[18px] md:text-xl mb-3">Affordable Rates</h3>
+    <div className="bg-[#eef1f6] rounded-[32px] overflow-hidden flex flex-col h-full">
+      <div className="p-6 md:p-10">
+        <h3 className="font-semibold md:font-medium text-[var(--color-text-dark)] text-[18px] md:text-[32px] mb-3">Affordable Rates</h3>
         <p className="text-[#111112] md:text-sm md:text-[var(--color-text-secondary)] text-[12px] leading-relaxed">
           Voye Global offers competitive eSIM pricing, helping you save significantly compared to traditional roaming charges.
         </p>
@@ -32,8 +32,8 @@ function AffordableCard() {
               <Image src="https://flagcdn.com/w80/au.png" alt="Australia" fill className="object-cover" sizes="56px" />
             </div>
             <div>
-              <p className="text-lg font-bold text-[var(--color-text-dark)]">Australia</p>
-              <p className="text-xl font-bold text-[var(--color-text-dark)]">$4.99</p>
+              <p className="text-[15px] md:text-[30px] font-semibold text-[var(--color-text-dark)]">Australia</p>
+              <p className="text-[16px] md:text-[38px] font-semibold text-[var(--color-text-dark)]">$4.99</p>
             </div>
           </div>
           {/* UAE — middle card */}
@@ -42,8 +42,8 @@ function AffordableCard() {
               <Image src="https://flagcdn.com/w80/ae.png" alt="UAE" fill className="object-cover" sizes="56px" />
             </div>
             <div>
-              <p className="text-lg font-bold text-[var(--color-text-dark)]">UAE</p>
-              <p className="text-xl font-bold text-[var(--color-text-dark)]">$4.99</p>
+              <p className="text-[15px] md:text-[30px] font-semibold text-[var(--color-text-dark)]">UAE</p>
+              <p className="text-[16px] md:text-[38px] font-semibold text-[var(--color-text-dark)]">$4.99</p>
             </div>
           </div>
           {/* Japan — front card */}
@@ -52,8 +52,8 @@ function AffordableCard() {
               <Image src="https://flagcdn.com/w80/jp.png" alt="Japan" fill className="object-cover" sizes="56px" />
             </div>
             <div>
-              <p className="text-lg font-bold text-[var(--color-text-dark)]">Japan</p>
-              <p className="text-xl font-bold text-[var(--color-text-dark)]">$2.99</p>
+              <p className="text-[15px] md:text-[30px] font-semibold text-[var(--color-text-dark)]">Japan</p>
+              <p className="text-[16px] md:text-[38px] font-semibold text-[var(--color-text-dark)]">$2.99</p>
             </div>
           </div>
         </div>
@@ -64,10 +64,10 @@ function AffordableCard() {
 
 function InstantCard() {
   return (
-    <div className="bg-[linear-gradient(to_right,#8FC3EB_20%,#8FC3EB_48%,#82BCE2_100%)] rounded-[16px] overflow-hidden flex flex-col h-full">
-      <div className="p-6 md:p-8">
-        <h3 className="font-semibold text-[var(--color-text-dark)] text-[14.6px] md:text-xl mb-3">Instant Connectivity</h3>
-        <p className="text-[#111112] md:text-sm md:text-[var(--color-text-secondary)] text-[12px] leading-relaxed">
+    <div className="bg-[linear-gradient(to_right,#8FC3EB_20%,#8FC3EB_48%,#82BCE2_100%)] rounded-[32px] overflow-hidden flex flex-col h-full">
+      <div className="p-6 md:p-10">
+        <h3 className="font-semibold md:font-medium text-[var(--color-text-dark)] text-[14.6px] md:text-[28px] mb-3">Instant Connectivity</h3>
+        <p className="text-[#111112] md:text-[20px] md:font-medium md:text-[var(--color-text-secondary)] text-[12px] leading-relaxed">
           Activate your eSIM on arrival and get online in minutes — no hunting for local SIM cards or navigating foreign kiosks.
         </p>
       </div>
@@ -87,7 +87,7 @@ function InstantCard() {
 
 function GlobalCard() {
   return (
-    <div className="rounded-[16px] overflow-hidden relative min-h-[380px] md:min-h-[420px] h-full">
+    <div className="rounded-[32px] overflow-hidden relative min-h-[380px] md:min-h-[420px] h-full">
       <Image
         src="/home/choose2.png"
         alt="Global coverage across 130+ countries"
@@ -97,9 +97,9 @@ function GlobalCard() {
         loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-transparent" aria-hidden="true" />
-      <div className="absolute inset-0 p-6 md:p-8 flex flex-col">
-        <h3 className="font-semibold text-white text-[14.6px] md:text-xl mb-3">Global coverage</h3>
-        <p className="text-white/90 text-[12px] md:text-sm leading-relaxed">
+      <div className="absolute inset-0 p-6 md:p-10 flex flex-col">
+        <h3 className="font-semibold md:font-medium text-white text-[14.6px] md:text-[28px] mb-3">Global coverage</h3>
+        <p className="text-white/90 text-[12px] md:text-[20px] md:font-medium leading-relaxed">
           Stay connected across 130+ countries, from bustling cities to remote locales — ideal for frequent travelers and digital nomads.
         </p>
       </div>
@@ -109,10 +109,10 @@ function GlobalCard() {
 
 function SupportCard() {
   return (
-    <div className="bg-[#eef1f6] rounded-[16px] overflow-hidden flex flex-col min-h-[380px] md:min-h-[420px] h-full">
+    <div className="bg-[#eef1f6] rounded-[32px] overflow-hidden flex flex-col min-h-[380px] md:min-h-[420px] h-full">
       <div className="p-6 pb-0 md:px-8 md:pt-8">
-        <h3 className="font-semibold text-[var(--color-text-dark)] text-[14.6px] md:text-xl mb-3">Dedicated Support</h3>
-        <p className="text-[#111112] md:text-sm md:text-[var(--color-text-secondary)] text-[12px] leading-relaxed">
+        <h3 className="font-semibold md:font-medium text-[var(--color-text-dark)] text-[14.6px] md:text-[28px] mb-3">Dedicated Support</h3>
+        <p className="text-[#111112] md:text-[18px] md:text-[var(--color-text-secondary)] text-[12px] leading-relaxed">
           Customer service is at the heart of Voye Global&apos;s offerings. We provide 24/7 support to ensure that any issues you encounter are swiftly resolved, allowing you to enjoy your travels without connectivity worries.
         </p>
       </div>
@@ -125,7 +125,7 @@ function SupportCard() {
           sizes="(max-width: 640px) 100vw, 50vw"
           loading="lazy"
         />
-        <div className="absolute start-22 top-1/2 -translate-y-1/2 grid grid-cols-2 gap-6">
+        <div className="absolute start-[88px] top-1/2 -translate-y-1/2 grid grid-cols-2 gap-6">
           <div className="w-16 h-16 rounded-full bg-[var(--color-brand)] flex items-center justify-center shadow-md">
             <PiPhoneCall className="w-9 h-9 text-white" aria-hidden="true" />
           </div>
@@ -159,12 +159,12 @@ export function WhyChooseSection() {
   });
 
   return (
-    <section className="bg-white py-16 md:py-24 relative z-10 rounded-t-[40px] -mt-10">
+    <section className="bg-[linear-gradient(to_bottom,#EBF6FE_0%,#ffffff_19%,#ffffff_51%,#B5DEFF_100%)] lg:bg-white py-16 md:py-24 relative z-10 rounded-[40px] md:rounded-[80px] -mt-10">
       <div className="max-w-[1408px] mx-auto px-4 md:px-8">
 
         <div className="flex items-center justify-center gap-4 mb-10">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-black/25" />
-          <p className="text-[var(--color-text-dark)] text-[12.4px] md:text-base font-semibold uppercase tracking-widest whitespace-nowrap">
+          <p className="text-[var(--color-text-dark)] text-[12.4px] md:text-[24px] font-normal md:font-medium uppercase tracking-widest whitespace-nowrap">
             WHY CHOOSE VOY GLOBAL&apos;S ESIM
           </p>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-black/25" />
@@ -194,7 +194,7 @@ export function WhyChooseSection() {
         </div>
 
         {/* Desktop 2×2 grid */}
-        <div className="hidden md:grid grid-cols-2 gap-6">
+        <div className="hidden md:grid grid-cols-2 md:gap-8">
           <AffordableCard />
           <InstantCard />
           <GlobalCard />

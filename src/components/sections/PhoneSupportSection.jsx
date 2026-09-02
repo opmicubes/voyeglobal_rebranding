@@ -71,7 +71,7 @@ function DeviceSearch({ devices }) {
             onChange={handleChange}
             onKeyDown={(e) => { if (e.key === 'Enter' && !loading) triggerSearch(); }}
             placeholder="Insert your model"
-            className="w-full border border-[#c9ced4] bg-white rounded-[8.5px] md:rounded-[var(--radius-md)] px-4 py-1.5 md:py-3 text-[12.5px] md:text-base text-[var(--color-text-primary)] placeholder:text-[#6b7280] outline-none focus-visible:border-[var(--color-brand)] focus-visible:ring-2 focus-visible:ring-[var(--color-brand)]/20 transition"
+            className="w-full border border-[#c9ced4] bg-white rounded-[8.5px] md:rounded-[var(--radius-md)] px-4 py-1.5 md:py-3 text-[12.5px] md:text-[18px] text-[var(--color-text-primary)] placeholder:text-[#6b7280] outline-none focus-visible:border-[var(--color-brand)] focus-visible:ring-2 focus-visible:ring-[var(--color-brand)]/20 transition"
             aria-label="Search your phone model"
             autoComplete="off"
           />
@@ -94,7 +94,7 @@ function DeviceSearch({ devices }) {
         <button
           onClick={triggerSearch}
           disabled={loading}
-          className="bg-[var(--color-brand)] text-white font-semibold text-base px-6 py-3 rounded-[var(--radius-md)] hover:bg-[var(--color-brand-dark)] transition-colors whitespace-nowrap disabled:opacity-70 flex items-center gap-2"
+          className="bg-[var(--color-brand)] text-white font-semibold text-[12.5px] md:text-[18px] px-6 py-1.5 md:py-3 rounded-[var(--radius-md)] hover:bg-[var(--color-brand-dark)] transition-colors whitespace-nowrap disabled:opacity-70 flex items-center gap-2"
         >
           {loading && (
             <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" aria-hidden="true" />
@@ -102,7 +102,7 @@ function DeviceSearch({ devices }) {
           Check Now
         </button>
       </div>
-      <Link href="#" className="text-[#1000F3] hover:underline text-[12.5px]">
+      <Link href="#" className="text-[#1000F3] hover:underline text-[12.5px] md:text-base">
         Or check out the full list of supported devices →
       </Link>
     </div>
@@ -116,17 +116,17 @@ export function PhoneSupportSection({ devices = [] }) {
         <div className="bg-[#fff4e2] rounded-[20px] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
             <div className="p-5 md:px-14 md:py-16 flex flex-col justify-center">
-              <h2 className="text-[#2a2a2e] text-[16.6px] font-normal md:text-3xl md:font-bold leading-snug mb-4">
+              <h2 className="text-[#2a2a2e] text-[16.6px] font-normal md:text-[40px] md:font-bold leading-snug mb-4">
                 Does my phone support eSIM?
               </h2>
-              <p className="text-[#2a2a2e] text-[12.5px] md:text-base mb-4 md:mb-8 leading-relaxed">
+              <p className="text-[#2a2a2e] text-[12.5px] md:text-[22px] mb-4 md:mb-8 leading-relaxed">
                 Voye Global provides a comprehensive compatibility guide on their website to help you verify if your device can use their eSIM service.
               </p>
 
               <DeviceSearch devices={devices} />
             </div>
 
-            <div className="relative min-h-[280px] lg:min-h-0 mt-6">
+            <div className="relative min-h-[280px] lg:min-h-0 mt-6 overflow-hidden">
               <Image
                 src="/home/phone-vector.svg"
                 alt=""

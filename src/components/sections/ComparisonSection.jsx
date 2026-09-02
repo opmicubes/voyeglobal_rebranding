@@ -39,11 +39,11 @@ function Check({ yes }) {
 export function ComparisonSection() {
   return (
     <section className="pt-2">
-      <div className="w-full rounded-[80px] bg-[linear-gradient(to_bottom,#EBF6FE00_1%,#ffffff_19%,#ffffff_51%,#B5DEFF_100%)] pb-12 md:pb-16">
+      <div className="w-full rounded-[40px] md:rounded-[80px] bg-[linear-gradient(to_bottom,#EBF6FE00_1%,#ffffff_19%,#ffffff_51%,#B5DEFF_100%)] pb-12 md:pb-16">
         <div className="max-w-[1408px] mx-auto px-5 md:px-10">
         <div className="flex items-center justify-center gap-4 mb-12">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-black/25" />
-          <p className="text-[var(--color-text-dark)] text-[12.4px] md:text-base font-semibold uppercase tracking-widest whitespace-nowrap">
+          <p className="text-[var(--color-text-dark)] text-[12.4px] md:text-[24px] font-normal md:font-medium uppercase tracking-widest whitespace-nowrap">
             VOY VS. OTHER ESIM SERVICE PROVIDERS
           </p>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-black/25" />
@@ -53,11 +53,11 @@ export function ComparisonSection() {
           <table className="w-full min-w-[640px] bg-white">
             <thead>
               <tr className="border-b border-[var(--color-border)]">
-                <th className="text-start ps-6 py-5 text-[10.4px] md:text-sm font-normal md:font-semibold text-[#1a1a2e] w-[40%]">Feature</th>
+                <th className="text-start ps-6 py-5 text-[10.4px] md:text-[14px] font-normal text-[#1a1a2e] w-[40%]">Feature</th>
                 {competitors.map((c, i) => (
                   <th key={c} className={`text-center py-5 px-4 ${i === 0 ? 'bg-[#077AD5]' : 'text-[var(--color-text-secondary)]'}`}>
-                    <span className={`text-[14.9px] md:text-base font-semibold ${i === 0 ? 'text-[#e8e8e8]' : ''}`}>{c}</span>
-                    {i === 0 && <div className="text-[11.9px] md:text-xs font-normal mt-0.5 text-[#e8e8e8]/80">★ Best Choice</div>}
+                    <span className={`text-[14.9px] md:text-[20px] font-semibold ${i === 0 ? 'text-[#e8e8e8]' : ''}`}>{c}</span>
+                    {i === 0 && <div className="text-[11.9px] md:text-[16px] font-normal mt-0.5 text-[#e8e8e8]/80">★ Best Choice</div>}
                   </th>
                 ))}
               </tr>
@@ -65,7 +65,7 @@ export function ComparisonSection() {
             <tbody className="divide-y divide-[var(--color-border)]">
               {features.map((feature) => (
                 <tr key={feature} className="hover:bg-[var(--color-surface)]/50">
-                  <td className="ps-6 py-4 text-[12.5px] md:text-base text-[#1a1a2e] font-medium">{feature}</td>
+                  <td className="ps-6 py-4 text-[12.5px] md:text-[18px] text-[#1a1a2e] font-medium">{feature}</td>
                   {(checkData[feature] ?? [false, false, false, false, false, false]).map((val, i) => (
                     <td key={i} className={`text-center py-4 px-4 ${i === 0 ? 'bg-[#E6F2FB]' : ''}`}>
                       <div className="flex justify-center">
