@@ -42,26 +42,26 @@ export default async function HomePage() {
 
   const [r0, r1, r2, r3, r4, r5, r6] = settled;
 
-  if (r0.status === 'fulfilled') countries = r0.value;
-  else console.error('[HomePage] countries failed:', r0.reason?.message);
+  if (r0.status === 'fulfilled') countries = r0?.value;
+  else console.log('[HomePage] countries failed:', r0.reason?.message);
 
-  if (r1.status === 'fulfilled') regional = r1.value;
-  else console.error('[HomePage] regional failed:', r1.reason?.message);
+  if (r1.status === 'fulfilled') regional = r1?.value;
+  else console.log('[HomePage] regional failed:', r1.reason?.message);
 
-  if (r2.status === 'fulfilled') globalCats = r2.value;
-  else console.error('[HomePage] globalCats failed:', r2.reason?.message);
+  if (r2.status === 'fulfilled') globalCats = r2?.value;
+  else console.log('[HomePage] globalCats failed:', r2.reason?.message);
 
-  if (r3.status === 'fulfilled') cruisePlans = r3.value;
-  else console.error('[HomePage] cruisePlans failed:', r3.reason?.message);
+  if (r3.status === 'fulfilled') cruisePlans = r3?.value;
+  else console.log('[HomePage] cruisePlans failed:', r3.reason?.message);
 
-  if (r4.status === 'fulfilled') globalPlans = r4.value;
-  else console.error('[HomePage] globalPlans failed:', r4.reason?.message);
+  if (r4.status === 'fulfilled') globalPlans = r4?.value;
+  else console.log('[HomePage] globalPlans failed:', r4.reason?.message);
 
-  if (r5.status === 'fulfilled') devices = r5.value;
-  else console.error('[HomePage] devices failed:', r5.reason?.message);
+  if (r5.status === 'fulfilled') devices = r5?.value;
+  else console.log('[HomePage] devices failed:', r5.reason?.message);
 
-  if (r6.status === 'fulfilled') popularPlans = r6.value;
-  else console.error('[HomePage] popularPlans failed:', r6.reason?.message);
+  if (r6.status === 'fulfilled') popularPlans = r6?.value;
+  else console.log('[HomePage] popularPlans failed:', r6.reason?.message);
 
   console.log('[HomePage] popularPlans count:', popularPlans?.length, '| first 3:', popularPlans?.slice(0, 3)?.map(p => p.name));
   console.log('[HomePage] countries count:', countries?.categories?.length);

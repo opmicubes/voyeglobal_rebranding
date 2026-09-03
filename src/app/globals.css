@@ -149,6 +149,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   font-family: var(--font-primary);
@@ -169,12 +170,6 @@ button {
   border-radius: var(--radius-xs);
 }
 
-/* Utility: CSS-only dot grid pattern */
-.dots-pattern {
-  background-image: radial-gradient(circle, rgba(0,0,0,0.25) 10px, transparent 10px);
-  background-size: 50px 50px;
-}
-
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -188,9 +183,24 @@ button {
 }
 
 /* CTA Carousel — Keen Slider */
+.cta-slider.keen-slider {
+  overflow: visible;
+}
+
 .cta-keen-slide {
-  min-width: 1160px;
-  max-width: 1160px;
+  min-width: min(1160px, 80vw);
+  max-width: min(1160px, 80vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-card-outer {
+  width: 100%;
+  flex-shrink: 0;
+  aspect-ratio: 1160 / 500;
+  transform: scale(var(--slide-scale, 0.8));
+  transform-origin: center;
 }
 
 .cta-card {
@@ -206,10 +216,15 @@ button {
   background: linear-gradient(to right, #033C6A 35%, rgba(3,60,106,0.7) 52%, transparent 70%);
 }
 
+.dots-pattern {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
 @media (max-width: 767px) {
   .cta-keen-slide {
-    min-width: 90vw;
-    max-width: 90vw;
+    min-width: 80vw;
+    max-width: 80vw;
   }
 }
 
