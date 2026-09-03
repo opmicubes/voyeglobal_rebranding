@@ -115,7 +115,7 @@ export function HowItWorksSection() {
   });
 
   return (
-    <section className="bg-[#f7f7f7] pt-[60px] pb-10 px-5 md:py-16 md:px-0">
+    <section className="bg-[#f7f7f7] px-5 pt-24 pb-10 -mt-[4rem] md:px-0 md:pt-28 md:pb-16">
       <div className="max-w-[1408px] mx-auto md:px-8">
 
         <div className="flex items-center justify-center gap-4 mb-10">

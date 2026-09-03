@@ -4,7 +4,7 @@ import { LuChevronRight } from 'react-icons/lu';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const TABS = ['Global', 'Regional', 'Country', 'Family', 'Cruise'];
+const TABS = ['Global', 'Regional', 'Country', 'Family Plans', 'Cruise'];
 
 function normalizeCountryName(value) {
   return String(value ?? '')
@@ -136,7 +136,7 @@ export function PlansSection({
     Regional: { items: cleanList(regional).sort((a, b) => a.name.localeCompare(b.name)), Card: RegionalCard },
     Global: { items: globalPlans.slice(0, 12), Card: PlanCard },
     Cruise: { items: cruisePlans, Card: PlanCard },
-    'Family': { items: [], Card: null },
+    'Family Plans': { items: [], Card: null },
   };
 
   const { items, Card } = tabData[activeTab] ?? { items: [], Card: null };
@@ -184,7 +184,7 @@ export function PlansSection({
           </div>
         ) : (
           <p className="text-center py-16 text-[var(--color-text-secondary)]">
-            {activeTab === 'Family' ? 'Family plans coming soon.' : 'No plans available.'}
+            {activeTab === 'Family Plans' ? 'Family plans coming soon.' : 'No plans available.'}
           </p>
         )}
 

@@ -6,7 +6,7 @@ const features = [
   { icon: <FaWifi className="text-white w-3 h-3 xl:w-5 xl:h-5 flex-shrink-0" aria-hidden="true" />, label: 'Hotspot Included' },
   { icon: <FaBolt className="text-white w-3 h-3 xl:w-5 xl:h-5 flex-shrink-0" aria-hidden="true" />, label: '5G Networks' },
   { icon: <FaArrowUp className="text-white w-3 h-3 xl:w-5 xl:h-5 flex-shrink-0" aria-hidden="true" />, label: 'Easy Top-Ups' },
-  { icon: <FaGlobe className="text-white w-3 h-3 xl:w-5 xl:h-5 flex-shrink-0" aria-hidden="true" />, label: '1 eSIM 130+ countries' },
+  { icon: <FaGlobe className="text-white w-3 h-3 xl:w-5 xl:h-5 flex-shrink-0" aria-hidden="true" />, label: '1 eSIM, 130+ countries' },
 ];
 
 export function FeaturesBar() {

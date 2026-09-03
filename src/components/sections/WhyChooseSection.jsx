@@ -111,7 +111,7 @@ function SupportCard() {
   return (
     <div className="bg-[#eef1f6] rounded-[32px] overflow-hidden flex flex-col min-h-[380px] md:min-h-[420px] h-full">
       <div className="p-6 pb-0 md:px-8 md:pt-8">
-        <h3 className="font-semibold md:font-medium text-[var(--color-text-dark)] text-[14.6px] md:text-[28px] mb-3">Dedicated Support</h3>
+        <h3 className="font-semibold md:font-medium text-[var(--color-text-dark)] text-[14.6px] md:text-[28px] mb-3">24/7 Support in 40 languages</h3>
         <p className="text-[#111112] md:text-[18px] md:text-[var(--color-text-secondary)] text-[12px] leading-relaxed">
           Customer service is at the heart of Voye Global&apos;s offerings. We provide 24/7 support to ensure that any issues you encounter are swiftly resolved, allowing you to enjoy your travels without connectivity worries.
         </p>

@@ -24,18 +24,21 @@ const faqs = [
 
 function FaqItem({ question, answer, open, onToggle }) {
   return (
-    <div className="bg-[#f8f9fa] rounded-[16px] md:rounded-3xl p-5 md:p-10">
-      <button
-        onClick={() => onToggle()}
-        aria-expanded={open}
-        className="w-full text-start flex items-start justify-between gap-4 md:gap-16"
-      >
+    <div
+      className="bg-[#f8f9fa] rounded-[16px] md:rounded-3xl p-5 md:p-10 cursor-pointer"
+      onClick={onToggle}
+      role="button"
+      tabIndex={0}
+      aria-expanded={open}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(); } }}
+    >
+      <div className="w-full text-start flex items-start justify-between gap-4 md:gap-16">
         <span className="text-[12.48px] md:text-[24px] font-semibold text-[#2a2a2e]">{question}</span>
         {open
           ? <LuChevronUp className="w-4 h-4 md:w-6 md:h-6 flex-shrink-0 mt-1 text-black" aria-hidden="true" />
           : <LuChevronDown className="w-4 h-4 md:w-6 md:h-6 flex-shrink-0 mt-1 text-black" aria-hidden="true" />
         }
-      </button>
+      </div>
       {open && (
         <p className="mt-5 text-[12.48px] md:text-[20px] text-[#18191d] leading-relaxed whitespace-pre-line">
           {answer}

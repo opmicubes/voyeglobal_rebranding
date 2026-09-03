@@ -113,7 +113,7 @@ export function PhoneSupportSection({ devices = [] }) {
   return (
     <section className="bg-white py-16 md:py-20">
       <div className="max-w-[1408px] mx-auto px-4 md:px-8">
-        <div className="bg-[#fff4e2] rounded-[20px] overflow-hidden">
+        <div className="bg-[#fff4e2] rounded-[20px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
             <div className="p-5 md:px-14 md:py-16 flex flex-col justify-center">
               <h2 className="text-[#2a2a2e] text-[16.6px] font-normal md:text-[40px] md:font-bold leading-snug mb-4">

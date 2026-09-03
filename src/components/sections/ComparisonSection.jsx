@@ -1,11 +1,13 @@
-import { LuCheck, LuX } from 'react-icons/lu';
+import {  LuX } from 'react-icons/lu';
+import { GiCheckMark} from 'react-icons/gi';
+
 
 const features = [
   'One eSIM for all supported destinations',
   '24/7 live chat support',
   'Free 100MB to try your eSIM at home',
   'Best-value unlimited plans',
-  'Max. plan validity — Up to 365 days',
+  'Max. plan validity',
   'Real-time data usage alerts to your personal phone number',
   'Family Plans',
   'Internet on cruises',
@@ -20,7 +22,6 @@ const checkData = {
   '24/7 live chat support':                  [true, true,  true,  true,  true,  false],
   'Free 100MB to try your eSIM at home':     [true, false, false, false, false, false],
   'Best-value unlimited plans':              [true, false, true,  false, false, false],
-  'Max. plan validity — Up to 365 days':     [true, true,  false, false, false, false],
   'Real-time data usage alerts to your personal phone number': [true, false, false, false, false, false],
   'Family Plans':                            [true, false, false, false, false, false],
   'Internet on cruises':                     [true, false, false, true,  true,  true],
@@ -28,9 +29,14 @@ const checkData = {
   'Corporate / team plans':                  [true, true,  false, false, false, false],
 };
 
+// Rows that show text values instead of check/cross icons
+const textData = {
+  'Max. plan validity': Array(6).fill('Up to 365 days'),
+};
+
 function Check({ yes }) {
   return yes ? (
-    <LuCheck className="w-5 h-5 text-[var(--color-brand)]" aria-label="Yes" />
+    <GiCheckMark className="w-5 h-5 text-[var(--color-brand)]" aria-label="Yes" />
   ) : (
     <LuX className="w-5 h-5 text-[#077ad5]" aria-label="No" />
   );
@@ -66,13 +72,20 @@ export function ComparisonSection() {
               {features.map((feature) => (
                 <tr key={feature} className="hover:bg-[var(--color-surface)]/50">
                   <td className="ps-6 py-4 text-[12.5px] md:text-[18px] text-[#1a1a2e] font-medium">{feature}</td>
-                  {(checkData[feature] ?? [false, false, false, false, false, false]).map((val, i) => (
-                    <td key={i} className={`text-center py-4 px-4 ${i === 0 ? 'bg-[#E6F2FB]' : ''}`}>
-                      <div className="flex justify-center">
-                        <Check yes={val} />
-                      </div>
-                    </td>
-                  ))}
+                  {textData[feature]
+                    ? textData[feature].map((val, i) => (
+                        <td key={i} className={`text-center py-4 px-4 ${i === 0 ? 'bg-[#E6F2FB]' : ''}`}>
+                          <span className={`text-[12.5px] md:text-[16px] font-medium ${i === 0 ? 'text-[#077AD5]' : 'text-[var(--color-text-secondary)]'}`}>{val}</span>
+                        </td>
+                      ))
+                    : (checkData[feature] ?? [false, false, false, false, false, false]).map((val, i) => (
+                        <td key={i} className={`text-center py-4 px-4 ${i === 0 ? 'bg-[#E6F2FB]' : ''}`}>
+                          <div className="flex justify-center">
+                            <Check yes={val} />
+                          </div>
+                        </td>
+                      ))
+                  }
                 </tr>
               ))}
             </tbody>

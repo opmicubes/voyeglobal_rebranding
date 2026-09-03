@@ -36,12 +36,12 @@ export function HeroSection() {
             width={246}
             height={100}
             priority
-            className="h-[29px] md:h-[100px] w-auto"
+            className="h-[29px] sm:h-[40px] md:h-[60px]  xl:h-[100px] w-auto"
           />
         </div>
 
-        <h1 className="text-[var(--color-brand-dark)] leading-[1.1] text-[16px] font-light md:font-medium md:text-[60px]">
-          Always Connected!
+        <h1 className="text-[var(--color-brand-dark)] leading-[1.1] text-[16px] sm:text-[30px] font-light md:font-medium xl:text-[60px]">
+          Always Connected.
         </h1>
 
       </div>
