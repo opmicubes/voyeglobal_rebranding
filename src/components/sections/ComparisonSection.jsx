@@ -38,7 +38,7 @@ function Check({ yes }) {
   return yes ? (
     <GiCheckMark className="w-5 h-5 text-[var(--color-brand)]" aria-label="Yes" />
   ) : (
-    <LuX className="w-5 h-5 text-[#077ad5]" aria-label="No" />
+    <LuX className="w-5 h-5 text-gray-300" aria-label="No" />
   );
 }
 
@@ -59,9 +59,9 @@ export function ComparisonSection() {
           <table className="w-full min-w-[640px] bg-white">
             <thead>
               <tr className="border-b border-[var(--color-border)]">
-                <th className="text-start ps-6 py-5 text-[10.4px] md:text-[14px] font-normal text-[#1a1a2e] w-[40%]">Feature</th>
+                <th className="text-start ps-6 py-5 text-[10.4px] md:text-[14px] font-normal text-[#1a1a2e] min-w-[14rem]">Feature</th>
                 {competitors.map((c, i) => (
-                  <th key={c} className={`text-center py-5 px-4 ${i === 0 ? 'bg-[#077AD5]' : 'text-[var(--color-text-secondary)]'}`}>
+                  <th key={c} className={`text-center py-5 px-4 min-w-[10rem] ${i === 0 ? 'bg-[#077AD5]' : 'text-[var(--color-text-secondary)]'}`}>
                     <span className={`text-[14.9px] md:text-[20px] font-semibold ${i === 0 ? 'text-[#e8e8e8]' : ''}`}>{c}</span>
                     {i === 0 && <div className="text-[11.9px] md:text-[16px] font-normal mt-0.5 text-[#e8e8e8]/80">★ Best Choice</div>}
                   </th>

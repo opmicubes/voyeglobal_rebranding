@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import { FiDownload } from 'react-icons/fi';
 import { SiAppstore } from 'react-icons/si';
 
 export function TrustedSection() {
   return (
-    <section className="bg-[var(--color-surface)] py-16 md:py-20 rounded-b-[80px]">
+    <section className="bg-[var(--color-surface)] py-16 md:py-20 rounded-b-[30px] md:rounded-b-[80px]">
       <div className="max-w-[1408px] mx-auto px-4 md:px-8">
 
         <div className="flex items-center justify-center gap-4 mb-10">
@@ -44,9 +45,9 @@ export function TrustedSection() {
                   <span className="font-semibold text-[13.1px] text-[var(--color-text-dark)]">4.6/5</span>
                 </div>
               </div>
-              <div className="mt-5">
-                <button className="text-[12px] font-semibold text-[#077ad5] bg-white rounded-[8px] px-2 py-0.5">Download App</button>
-              </div>
+            </div>
+            <div className="absolute bottom-0 end-0 p-5 z-10">
+              <button className="text-[12px] flex items-center gap-2 font-semibold text-[#077ad5] bg-white rounded-[8px] px-2 py-1.5"><FiDownload /> Download App</button>
             </div>
           </div>
 
@@ -63,8 +64,10 @@ export function TrustedSection() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent" aria-hidden="true" />
             <div className="absolute top-0 start-0 p-5 z-10">
               <p className="text-white text-[14px] font-light mb-1">Send $5 to a friend.</p>
-              <p className="text-white text-[14px] font-light mb-6">Get $5 for your next eSIM.</p>
-              <button className="text-[12px] font-semibold text-[#077ad5] bg-white rounded-[8px] px-2 py-0.5">
+              <p className="text-white text-[14px] font-light">Get $5 for your next eSIM.</p>
+            </div>
+            <div className="absolute bottom-0 end-0 p-5 z-10">
+              <button className="text-[12px] font-semibold text-[#077ad5] bg-white rounded-[8px] px-2 py-1.5">
                 Refer and Earn
               </button>
             </div>
