@@ -49,16 +49,61 @@ src/features/          ← domain logic, data transformation
 src/components/        ← UI (never sees raw GraphQL shapes)
 ```
 
-## Multi-site / white-labeling
+## Multi-site / sub-sites (multi-tenant by host)
 
-The same codebase powers multiple brands. A "brand" is defined by:
-- Environment variables (`NEXT_PUBLIC_SITE_NAME`, `NEXT_PUBLIC_DEFAULT_LOCALE`, etc.)
-- CSS variable overrides for brand colors in `globals.css`
-- Logo/favicon assets in `public/`
+The same codebase powers multiple brands, resolved **per request from the
+Host header** (e.g. `voy.com`, `asser.voy.com`). No env swap, no rebuild —
+one deployment serves every site.
 
-Core components never contain hardcoded brand names, logos, or contact info.
+### Data flow
 
-If genuinely independent apps are needed later, evolve to a monorepo with `apps/` and `packages/`. Don't do it before there's a real reason.
+```
+request → src/proxy.js            # reads Host, resolves slug, sets x-site-id header
+        → getCurrentSite()        # src/lib/site/context.js — reads header in any Server Component
+        → src/app/layout.jsx      # injects per-site theme (CSS vars) + lang/dir + metadata
+        → components              # brand-agnostic; pick up brand via CSS vars + props
+```
+
+### Where things live
+
+| Concern | Location |
+|---|---|
+| Host → slug resolution | `src/lib/site/resolver.js` + `src/sites/registry.js` |
+| Proxy that sets the header | `src/proxy.js` (Next 16 renamed `middleware` → `proxy`) |
+| Server-side site accessor | `src/lib/site/context.js` → `getCurrentSite()` |
+| Per-brand config / theme / content | `src/sites/<slug>/{config,theme,content}.js` |
+| Per-brand API endpoint | `src/sites/<slug>/config.js` → `api.graphqlEndpoint` |
+| Shared components, data, checkout | `src/components`, `src/lib/gql`, `src/features` |
+
+### Per-site data source
+
+Each site can point at its own WordPress/WooGraphQL backend via
+`config.api.graphqlEndpoint` (overridable per env, e.g. `ASSER_GRAPHQL_ENDPOINT`).
+`gqlServer()` resolves the current site's endpoint automatically — query
+functions and pages need no changes. Precedence:
+`opts.endpoint` → site's `api.graphqlEndpoint` → global default.
+
+**Per-brand code is confined to `src/sites/`.** Everything else stays shared.
+A "brand" is `config` (name, url, locales, currency, features, SEO) + `theme`
+(CSS-variable overrides only) + `content` (composition + editorial text).
+
+Themes are applied by injecting a `:root { --color-brand: … }` override
+`<style>` in the root layout — components reference `var(--color-brand)` and
+never change per site.
+
+### Adding a site
+
+1. Create `src/sites/<slug>/{config,theme,content,index}.js`.
+2. List its hostnames in that site's `config.hosts`.
+3. Register it in `src/sites/registry.js`.
+
+### Local dev
+
+Subdomains resolve via `*.localhost` (e.g. `http://asser.localhost:3000`) — no
+hosts-file edit needed in Chrome. The bare `localhost` maps to the default site.
+
+If genuinely independent apps are needed later, evolve to a monorepo with
+`apps/` and `packages/`. Don't do it before there's a real reason.
 
 ## i18n and RTL
 

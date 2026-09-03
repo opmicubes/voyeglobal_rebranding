@@ -3,10 +3,12 @@ import { defaultSeo } from '@/config/seo';
 
 /**
  * @param {Partial<import('@/config/seo').SeoMeta>} [seo]
+ * @param {{ siteName?: string }} [options] per-site overrides (multi-tenant)
  * @returns {import('next').Metadata}
  */
-export function buildMetadata(seo = {}) {
+export function buildMetadata(seo = {}, options = {}) {
   const merged = { ...defaultSeo, ...seo };
+  const siteName = options.siteName ?? siteConfig.name;
 
   return {
     title: merged.title,
@@ -21,7 +23,7 @@ export function buildMetadata(seo = {}) {
       title: merged.openGraph?.title ?? merged.title,
       description: merged.openGraph?.description ?? merged.description,
       images: merged.openGraph?.image ? [{ url: merged.openGraph.image }] : [],
-      siteName: siteConfig.name,
+      siteName,
       type: 'website',
     },
     twitter: {
