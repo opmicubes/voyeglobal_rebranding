@@ -17,18 +17,20 @@ export function Footer({ logo, siteName = '' }) {
       <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-16 pt-6 pb-2 md:pt-14 md:pb-12">
         {/* Logo — centered; brand asset if provided, else a text wordmark */}
         <div className="flex justify-center mb-16">
-          {logo?.src ? (
-            <Image
-              src={logo.src}
-              alt={logo.alt ?? siteName}
-              width={175}
-              height={71}
-            />
-          ) : (
-            <span className="text-3xl font-bold text-[var(--color-brand)]">
-              {siteName}
-            </span>
-          )}
+          <Link href="/" aria-label={`${siteName} — home`}>
+            {logo?.src ? (
+              <Image
+                src={logo.src}
+                alt={logo.alt ?? siteName}
+                width={175}
+                height={71}
+              />
+            ) : (
+              <span className="text-3xl font-bold text-[var(--color-brand)]">
+                {siteName}
+              </span>
+            )}
+          </Link>
         </div>
 
         {/* Nav columns */}

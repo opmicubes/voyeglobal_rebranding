@@ -80,7 +80,7 @@ function Step3Card() {
           Activate &amp; enjoy your trip
         </h3>
         <p className="text-[#3f4043] text-[12px] md:text-[18px] leading-relaxed">
-          • Activate your plan, connect to the local network, and start enjoying seamless coverage from the moment you land.
+          Activate your plan, connect to the local network, and start enjoying seamless coverage from the moment you land.
         </p>
       </div>
       <div className="flex-1 min-h-0 px-5 pt-3">
@@ -119,7 +119,7 @@ export function HowItWorksSection() {
       <div className="max-w-[1408px] mx-auto md:px-8">
 
         <div className="flex items-center justify-center gap-4 mb-10">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-black/25" />
+          <div style={{ background: 'linear-gradient(to-right, transparent, #000000/25)' }} className="flex-1 h-px bg-gradient-to-r from-transparent to-black/25" />
           <p className="text-[var(--color-text-dark)] text-[12.4px] md:text-[24px] font-normal md:font-medium uppercase tracking-widest whitespace-nowrap">
             HOW VOY&apos;S ESIM WORKS
           </p>

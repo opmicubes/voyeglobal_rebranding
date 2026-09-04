@@ -41,13 +41,18 @@ export function Navbar({ logo, siteName = 'Home' }) {
 
         {/* Nav links — immediately after logo, left-aligned */}
         <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
-          {['Plans', 'About', 'Support', 'Refer & Earn'].map((item) => (
+          {[
+            { label: 'Plans', href: '/plans' },
+            { label: 'About', href: '#' },
+            { label: 'Support', href: '#' },
+            { label: 'Refer & Earn', href: '#' },
+          ].map((item) => (
             <Link
-              key={item}
-              href="#"
+              key={item.label}
+              href={item.href}
               className="text-base font-normal text-[var(--color-text-primary)] hover:text-[var(--color-brand)] transition-colors whitespace-nowrap"
             >
-              {item}
+              {item.label}
             </Link>
           ))}
         </nav>
@@ -93,9 +98,14 @@ export function Navbar({ logo, siteName = 'Home' }) {
       {menuOpen && (
         <div className="absolute top-full start-0 end-0 bg-white border-t border-[var(--color-border)] px-5 pb-5 pt-3 z-[199] shadow-md">
           <nav className="flex flex-col gap-4" aria-label="Menu">
-            {['Plans', 'About', 'Support', 'Refer & Earn'].map((item) => (
-              <Link key={item} href="#" className="text-base text-[var(--color-text-primary)] py-1 hover:text-[var(--color-brand)] transition-colors">
-                {item}
+            {[
+              { label: 'Plans', href: '/plans' },
+              { label: 'About', href: '#' },
+              { label: 'Support', href: '#' },
+              { label: 'Refer & Earn', href: '#' },
+            ].map((item) => (
+              <Link key={item.label} href={item.href} className="text-base text-[var(--color-text-primary)] py-1 hover:text-[var(--color-brand)] transition-colors">
+                {item.label}
               </Link>
             ))}
             <div className="flex items-center gap-4 pt-3 border-t border-[var(--color-border)]">

@@ -55,9 +55,10 @@ function cleanList(arr) {
 }
 
 function CountryCard({ item }) {
+  const slug = normalizeCountryName(item.name).replace(/\s+/g, '-');
   return (
     <Link
-      href="#"
+      href={`/esim/${slug}`}
       className="bg-[#f8f9fa] md:bg-white rounded-[12px] md:rounded-[16px] p-2 lg:px-5 lg:py-4 flex items-center gap-2 lg:gap-4 shadow-[var(--shadow-subtle)] hover:shadow-[var(--shadow-card)] transition-shadow"
     >
       <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-full overflow-hidden flex-shrink-0 relative border border-black/5">
@@ -190,7 +191,7 @@ export function PlansSection({
 
         <div className="flex justify-center mt-4 md:mt-8">
           <Link
-            href="#"
+            href="/plans"
             className="flex items-center gap-2 text-[var(--color-brand)] text-[14.5px] md:text-[24px] font-semibold md:font-medium hover:underline transition-all"
           >
             View All
